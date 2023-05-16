@@ -1,0 +1,15 @@
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\bin\Debug\net6.0\04. Print and sum.exe
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\bin\Debug\net6.0\04. Print and sum.deps.json
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\bin\Debug\net6.0\04. Print and sum.runtimeconfig.json
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\bin\Debug\net6.0\04. Print and sum.dll
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\bin\Debug\net6.0\04. Print and sum.pdb
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.csproj.AssemblyReference.cache
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.AssemblyInfoInputs.cache
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.AssemblyInfo.cs
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.csproj.CoreCompileInputs.cache
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.dll
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\refint\04. Print and sum.dll
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.pdb
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\04. Print and sum.genruntimeconfig.cache
+E:\Documnets\SoftUni Fundamentals\FundamentalsExerciseBasics\SoftUniFund_ExerBasic\04. Print and sum\obj\Debug\net6.0\ref\04. Print and sum.dll
