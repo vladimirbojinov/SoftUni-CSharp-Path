@@ -4,22 +4,24 @@
     {
         static void Main(string[] args)
         {
-            int number = int.Parse(Console.ReadLine());
+            int numbers = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i <= number; i++)
+            for (int i = 1; i <= numbers; i++)
             {
-                int sumOfDigits = 0;
-                int digits = i;
-                bool isSpecial = false;
+                int sum = 0;
+                int finalSum = 0;
+                int digit = i;
 
-                while (digits > 0)
+                finalSum = i;
+
+                while (digit > 0)
                 {
-                    sumOfDigits += i % 10;
-                    digits = digits / 10;
+                    sum += i % 10;
+                    digit = digit / 10;
                 }
 
-                isSpecial = (sumOfDigits == 5) || (sumOfDigits == 7) || (sumOfDigits == 11);
-                Console.WriteLine($"{i} -> {isSpecial}");
+                bool isSpeccial = (sum == 5) || (sum == 7) || (sum == 11);
+                Console.WriteLine("{0} -> {1}", finalSum, isSpeccial);
             }
         }
     }
