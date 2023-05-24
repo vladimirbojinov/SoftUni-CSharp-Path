@@ -6,52 +6,43 @@
         {
             int loops = int.Parse(Console.ReadLine());
 
-            bool isSpace = false;
-
-            long n1 = 0L;
-            long n2 = 0L;
-            string stringedN1 = "";
-            string stringedN2 = "";
-
             for (int i = 0; i < loops; i++)
             {
-                string numColum = Console.ReadLine();
+                string number = Console.ReadLine();
+                int n1 = 0;
+                int n2 = 0;
+                bool isSpace = false;
 
-                for (int j = 0; j < numColum.Length; j++)
+                for (int j = 0; j < number.Length; j++)
                 {
-                    char currentNum = numColum[j];
-                    string stringedNum = currentNum.ToString();
-
-                    if (stringedNum == " ")
+                    if (number[j].ToString() == " ")
                     {
                         isSpace = true;
                     }
 
-                    if (isSpace && stringedNum != " ")
+                    if (number[j].ToString() != " ")
                     {
-
-                        if (stringedNum == "-")
+                        if (number[j].ToString() == "-")
                         {
-                            stringedN2 += stringedNum;
+                            string temp = number[j].ToString();
+                            temp = number[j+1].ToString();
+                            if (isSpace == true)
+                            {
+                                n2 += int.Parse(temp);
+                            }
+                            else
+                            {
+                                n1 += int.Parse(temp);
+                            }
+                            j++;
+                        }
+                        else if (isSpace)
+                        {
+                            n2 += int.Parse(number[j].ToString());
                         }
                         else
                         {
-                            stringedN2 += stringedNum;
-                            n2 += long.Parse(stringedN2);
-                            stringedN2 = "";
-                        }
-                    }
-                    else if (stringedNum != " ")
-                    {
-                        if (stringedNum == "-")
-                        {
-                            stringedN1 += stringedNum;
-                        }
-                        else
-                        {
-                            stringedN1 += stringedNum;
-                            n1 += long.Parse(stringedN1);
-                            stringedN1 = "";
+                            n1 += int.Parse(number[j].ToString());
                         }
                     }
                 }
@@ -64,13 +55,6 @@
                 {
                     Console.WriteLine(n2);
                 }
-
-                isSpace = false;
-
-                stringedN1 = "";
-                stringedN2 = "";
-                n1 = 0;
-                n2 = 0;
             }
         }
     }

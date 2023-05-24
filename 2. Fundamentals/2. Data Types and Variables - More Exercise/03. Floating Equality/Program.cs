@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            double double1 = double.Parse(Console.ReadLine());
-            double double2 = double.Parse(Console.ReadLine());
-            double tolerance = 0.0001;
+            decimal n1 = decimal.Parse(Console.ReadLine());
+            decimal n2 = decimal.Parse(Console.ReadLine());
+            decimal tolerance = 0.000001m;
 
 
-            bool isEquel = Math.Abs(double1 - double2) <= tolerance;
+            bool isEquel = Math.Abs(n1 - n2) < tolerance;
 
             if (isEquel)
             {
