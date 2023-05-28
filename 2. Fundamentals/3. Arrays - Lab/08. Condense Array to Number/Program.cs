@@ -4,27 +4,22 @@
     {
         static void Main(string[] args)
         {
-            int[] array1 = Console
-                .ReadLine()
+            int[] array1 = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToArray();
-            int[] condenced = new int[array1.Length];
 
-            double n = array1.Length;
-            double loops = Math.Ceiling(n / 2);
-
-            for (int i = 0; i < loops; i++)
+            while (array1.Length > 1)
             {
-                for (int j = 0; j < array1.Length - 1; j++)
+                int[] condensed = new int[array1.Length - 1];
+                for (int i = 0; i < array1.Length - 1; i++)
                 {
-                    condenced[j] = array1[j] + array1[j + 1];
-                    array1[j] = condenced[j];
+                    condensed[i] = array1[i] + array1[i + 1];
                 }
-
+                array1 = condensed;
             }
 
-            Console.WriteLine(condenced[0] + condenced[1]);
+            Console.WriteLine(array1[0]);
         }
     }
 }
