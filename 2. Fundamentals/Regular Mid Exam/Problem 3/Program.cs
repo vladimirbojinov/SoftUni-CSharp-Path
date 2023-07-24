@@ -1,12 +1,5 @@
 ﻿namespace Problem_3
 {
-    /*
-Ace of Diamonds, Queen of Hearts, King of Clubs 
-3
-Add, King of Diamonds
-Insert, 2, Jack of Spades
-Remove, Ace of Diamonds
-     */
     internal class Program
     {
         static void Main(string[] args)
