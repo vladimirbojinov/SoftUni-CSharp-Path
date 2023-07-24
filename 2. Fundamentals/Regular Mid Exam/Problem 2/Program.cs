@@ -2,16 +2,6 @@
 
 namespace Problem_2
 {
-    /*
-Arabica Liberica Charrieriana Magnistipula Robusta BulkCoffee StrongCoffee
-5
-Include TurkishCoffee
-Remove first 2
-Remove last 1
-Prefer 3 1
-Reverse
-
-     */
     internal class Program
     {
         static void Main(string[] args)
