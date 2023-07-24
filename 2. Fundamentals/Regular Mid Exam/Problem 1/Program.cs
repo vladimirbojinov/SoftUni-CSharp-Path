@@ -1,25 +1,5 @@
 ﻿namespace Problem_1
 {
-
-    /*
-12
-6
-4430
-9.8
-5.5
-620.3
-840.2
-960.1
-220
-340
-674
-365
-345.5
-212
-412.12
-258
-496
-     */
     internal class Program
     {
         static void Main(string[] args)
