@@ -4,25 +4,25 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int num = int.Parse(Console.ReadLine());
 
-            if (n % 10 == 0)
+            if (num % 10 == 0)
             {
                 Console.WriteLine("The number is divisible by 10");
             }
-            else if (n % 7 == 0)
+            else if (num % 7 == 0)
             {
                 Console.WriteLine("The number is divisible by 7");
             }
-            else if (n % 6 == 0)
+            else if (num % 6 == 0)
             {
                 Console.WriteLine("The number is divisible by 6");
             }
-            else if (n % 3 == 0)
+            else if (num % 3 == 0)
             {
                 Console.WriteLine("The number is divisible by 3");
             }
-            else if (n % 2 == 0)
+            else if (num % 2 == 0)
             {
                 Console.WriteLine("The number is divisible by 2");
             }

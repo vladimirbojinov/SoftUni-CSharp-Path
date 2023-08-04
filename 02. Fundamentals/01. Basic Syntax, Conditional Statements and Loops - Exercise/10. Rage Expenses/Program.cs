@@ -21,10 +21,12 @@
                 {
                     trashedHeadset++;
                 }
+
                 if (i % 3 == 0)
                 {
                     trashedMouse++;
                 }
+
                 if (i % 3 == 0 && i % 2 == 0)
                 {
                     trashedKeyboard++;
@@ -35,9 +37,14 @@
                 }
             }
 
-            double total = trashedHeadset * headsetPrice + trashedMouse * mousePrice + trashedKeyboard * keyboardPrice + trashedDisplay * displayPrice;
+            double headsetExpenses = trashedHeadset * headsetPrice;
+            double mouseExpenses = trashedMouse * mousePrice;
+            double keyboardExpenses = trashedKeyboard * keyboardPrice;
+            double monitorExpenses = trashedDisplay * displayPrice;
 
-            Console.WriteLine($"Rage expenses: {total:f2} lv.");
+            double totalExpenses = headsetExpenses + mouseExpenses + keyboardExpenses + monitorExpenses;
+
+            Console.WriteLine($"Rage expenses: {totalExpenses:f2} lv.");
         }
     }
 }

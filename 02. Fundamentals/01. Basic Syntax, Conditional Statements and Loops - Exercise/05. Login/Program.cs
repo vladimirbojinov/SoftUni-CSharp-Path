@@ -5,39 +5,34 @@
         static void Main(string[] args)
         {
             string username = Console.ReadLine();
-            string password = "";
+            string password = string.Empty;
 
             for (int i = username.Length - 1; i >= 0; i--)
             {
-                char currentCharacter = username[i];
-                password += currentCharacter;
-
+                password += username[i];
             }
 
-            string passAttempt = Console.ReadLine();
+            string passwordInput = Console.ReadLine();
             int attempts = 1;
 
             for (int i = attempts; i <= 4; i++)
             {
-
-                if (passAttempt == password)
+                if (passwordInput == password)
                 {
                     Console.WriteLine($"User {username} logged in.");
                     break;
                 }
-                
-                if (attempts >= 4 && passAttempt != password)
+
+                if (attempts >= 4 && passwordInput != password)
                 {
                     Console.WriteLine($"User {username} blocked!");
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("Incorrect password. Try again.");
-                }
+
+                Console.WriteLine("Incorrect password. Try again.");
 
                 attempts++;
-                passAttempt = Console.ReadLine();
+                passwordInput = Console.ReadLine();
             }
         }
     }

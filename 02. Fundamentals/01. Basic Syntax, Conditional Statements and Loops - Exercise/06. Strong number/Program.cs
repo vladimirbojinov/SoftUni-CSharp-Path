@@ -4,29 +4,27 @@
     {
         static void Main(string[] args)
         {
-            string num = Console.ReadLine();
+            string numberAsString = Console.ReadLine();
 
-            int sum = 1;
             int finalNum = 0;
 
-            for (int i = 0; i < num.Length; i++)
+            for (int i = 0; i < numberAsString.Length; i++)
             {
-                char currentCharacter = num[i];
-                string str = currentCharacter.ToString();
-                int curentNum = int.Parse(str);
+                int sum = 1;
+                string currentChar = numberAsString[i].ToString();
+                int currentNum = int.Parse(currentChar);
 
-                for (int j = 1; j <= curentNum; j++)
+                for (int j = 1; j <= currentNum; j++)
                 {
                     sum *= j;
                 }
 
                 finalNum += sum;
-                sum = 1;
             }
 
-            int num2 = int.Parse(num);
+            int convertedNumber = int.Parse(numberAsString);
 
-            if (finalNum == num2)
+            if (finalNum == convertedNumber)
             {
                 Console.WriteLine("yes");
             }

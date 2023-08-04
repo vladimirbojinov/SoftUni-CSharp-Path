@@ -10,34 +10,32 @@
             double robesPrice = double.Parse(Console.ReadLine());
             double beltPrice = double.Parse(Console.ReadLine());
 
-            double studentsPercent = Math.Ceiling((studentsCount * 0.10) + studentsCount);
-            double lightSaberBought = lightSaberPrice * studentsPercent;
+            double studentsCountWithPercent = Math.Ceiling((studentsCount * 0.10) + studentsCount);
+            double lightSaberBought = lightSaberPrice * studentsCountWithPercent;
             double robesBought = studentsCount * robesPrice;
 
             int freeBelts = 0;
-            double students = studentsCount;
+            double remainingStudents = studentsCount;
 
-            if (studentsCount - 6 >= 0)
+            if (studentsCount >= 6)
             {
-
-                while (students - 6 >= 0)
+                while (remainingStudents >= 6)
                 {
                     freeBelts++;
-                    students -= 6;
+                    remainingStudents -= 6;
                 }
             }
 
-            double beltsBought = studentsCount - freeBelts;
-            beltsBought *= beltPrice;
-            double total = lightSaberBought + robesBought + beltsBought;
+            double beltsBought = (studentsCount - freeBelts) * beltPrice;
+            double totalPrice = lightSaberBought + robesBought + beltsBought;
 
-            if (total - money <= 0)
+            if (totalPrice - money <= 0)
             {
-                Console.WriteLine($"The money is enough - it would cost {total:f2}lv.");
+                Console.WriteLine($"The money is enough - it would cost {totalPrice:f2}lv.");
             }
             else
             {
-                Console.WriteLine($"John will need {total - money:f2}lv more.");
+                Console.WriteLine($"John will need {totalPrice - money:f2}lv more.");
             }
         }
     }

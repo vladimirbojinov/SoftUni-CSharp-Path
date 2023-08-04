@@ -13,19 +13,19 @@
             switch (groupType)
             {
                 case "Students":
-                    switch (day) 
-                    {
-                        case "Friday":price = 8.45 * peopleCount; break;
-                        case "Saturday": price = 9.80 * peopleCount; break;
-                        case "Sunday": price = 10.46 * peopleCount; break;
-                    }
 
                     if (peopleCount >= 30)
                     {
                         price *= 0.85;
                     }
 
-                break;
+                    switch (day)
+                    {
+                        case "Friday": price = 8.45 * peopleCount; break;
+                        case "Saturday": price = 9.80 * peopleCount; break;
+                        case "Sunday": price = 10.46 * peopleCount; break;
+                    }
+                    break;
 
                 case "Business":
 
@@ -43,18 +43,18 @@
                     break;
 
                 case "Regular":
-                    switch (day)
-                    {
-                        case "Friday": price = 15.00 * peopleCount; break;
-                        case "Saturday": price = 20.00 * peopleCount; break;
-                        case "Sunday": price = 22.50 * peopleCount; break;
-                    }
 
                     if (peopleCount >= 10 && peopleCount <= 20)
                     {
                         price *= 0.95;
                     }
 
+                    switch (day)
+                    {
+                        case "Friday": price = 15.00 * peopleCount; break;
+                        case "Saturday": price = 20.00 * peopleCount; break;
+                        case "Sunday": price = 22.50 * peopleCount; break;
+                    }
                     break;
             }
 

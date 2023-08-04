@@ -9,7 +9,6 @@
             int days = int.Parse(Console.ReadLine());
             int capsulesCount = int.Parse(Console.ReadLine());
 
-            double price = 0;
             double sum = 0;
 
             for (int i = 1; i <= orders; i++)
@@ -21,7 +20,7 @@
                     capsulesCount = int.Parse(Console.ReadLine());
                 }
 
-                price = ((days * capsulesCount) * capsulePrice);
+                double price = (days * capsulesCount) * capsulePrice;
 
                 sum += price;
                 Console.WriteLine($"The price for the coffee is: ${price:f2}");

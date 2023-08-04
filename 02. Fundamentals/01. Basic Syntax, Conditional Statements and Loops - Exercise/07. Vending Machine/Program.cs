@@ -12,13 +12,17 @@
             {
                 double money = double.Parse(command);
 
-                if (money == 0.1 || money == 0.2 || money == 0.5 || money == 1 || money == 2)
+                switch (money)
                 {
-                    totalMoney += money;
-                }
-                else
-                {
-                    Console.WriteLine($"Cannot accept {money}");
+                    case 1:
+                    case 2:
+                    case 0.5:
+                    case 0.2:
+                    case 0.1:
+                        totalMoney += money;
+                        break;
+                    default:
+                        Console.WriteLine($"Cannot accept {money}"); break;
                 }
 
                 command = Console.ReadLine();
@@ -33,7 +37,7 @@
                 switch (product)
                 {
                     case "nuts":
-                        if (totalMoney - 2.00 >= 0) 
+                        if (totalMoney - 2.00 >= 0)
                         {
                             totalMoney -= 2.00;
                             Console.WriteLine($"Purchased {product}");
@@ -42,7 +46,7 @@
                         {
                             Console.WriteLine("Sorry, not enough money");
                         }
-                        ; break;
+                        break;
                     case "water":
                         if (totalMoney - 0.70 >= 0)
                         {
@@ -53,7 +57,7 @@
                         {
                             Console.WriteLine("Sorry, not enough money");
                         }
-                        ; break;
+                        break;
                     case "crisps":
                         if (totalMoney - 1.50 >= 0)
                         {
@@ -64,7 +68,7 @@
                         {
                             Console.WriteLine("Sorry, not enough money");
                         }
-                        ; break;
+                        break;
                     case "soda":
                         if (totalMoney - 0.80 >= 0)
                         {
@@ -75,8 +79,8 @@
                         {
                             Console.WriteLine("Sorry, not enough money");
                         }
-                        ; break;
-                    case "coke": 
+                        break;
+                    case "coke":
                         if (totalMoney - 1.00 >= 0)
                         {
                             totalMoney -= 1.00;
@@ -86,10 +90,9 @@
                         {
                             Console.WriteLine("Sorry, not enough money");
                         }
-                        ;
                         break;
-                    
-                    default: Console.WriteLine("Invalid product");break;
+
+                    default: Console.WriteLine("Invalid product"); break;
                 }
 
                 command = Console.ReadLine();
