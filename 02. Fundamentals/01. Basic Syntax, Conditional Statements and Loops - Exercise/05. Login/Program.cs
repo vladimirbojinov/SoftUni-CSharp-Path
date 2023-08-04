@@ -9,7 +9,8 @@
 
             for (int i = username.Length - 1; i >= 0; i--)
             {
-                password += username[i];
+                string currentChar = username[i];
+                password += currentChar;
             }
 
             string passwordInput = Console.ReadLine();
