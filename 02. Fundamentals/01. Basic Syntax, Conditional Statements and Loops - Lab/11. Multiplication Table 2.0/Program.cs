@@ -4,17 +4,17 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            int n2 = int.Parse(Console.ReadLine());
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
 
-            if (n2 > 10)
+            if (num2 > 10)
             {
-                Console.WriteLine($"{n} X {n2} = {n * n2}");
+                Console.WriteLine($"{num1} X {num2} = {num1 * num2}");
             }
 
-            for (int i = n2; i <= 10; i++)
+            for (int i = num2; i <= 10; i++)
             {
-                Console.WriteLine($"{n} X {i} = {n * i}");
+                Console.WriteLine($"{num1} X {i} = {num1 * i}");
             }
         }
     }

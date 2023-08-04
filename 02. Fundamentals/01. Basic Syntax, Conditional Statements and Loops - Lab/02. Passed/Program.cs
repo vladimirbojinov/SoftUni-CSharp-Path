@@ -10,10 +10,6 @@
             {
                 Console.WriteLine("Passed!");
             }
-            else
-            {
-
-            }
         }
     }
 }

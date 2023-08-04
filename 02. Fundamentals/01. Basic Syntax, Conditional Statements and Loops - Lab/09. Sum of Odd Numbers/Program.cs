@@ -4,22 +4,23 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            int counter = 1;
+            int countOfOddNum = int.Parse(Console.ReadLine());
+            int currentValue = 1;
             int sum = 0;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < countOfOddNum; i++)
             {
-                if (counter % 2 != 0)
+                if (currentValue % 2 != 0)
                 {
-                    Console.WriteLine(counter);
-                    sum += counter;
+                    Console.WriteLine(currentValue);
+                    sum += currentValue;
                 }
                 else
                 {
                     i--;
                 }
-                counter++;
+
+                currentValue++;
             }
 
             Console.WriteLine($"Sum: {sum}");

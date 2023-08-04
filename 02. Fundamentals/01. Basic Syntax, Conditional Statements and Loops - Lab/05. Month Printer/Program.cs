@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int monthNumber = int.Parse(Console.ReadLine());
 
-            switch (n)
+            switch (monthNumber)
             {
                 case 1: Console.WriteLine("January"); break;
                 case 2: Console.WriteLine("February"); break;

@@ -4,22 +4,22 @@
     {
         static void Main(string[] args)
         {
-            int hh = int.Parse(Console.ReadLine());
-            int mm = int.Parse(Console.ReadLine());
+            int hour = int.Parse(Console.ReadLine());
+            int minutes = int.Parse(Console.ReadLine());
 
-            mm += 30;
+            minutes += 30;
 
-            if (mm >= 60)
+            if (minutes >= 60)
             {
-                hh++;
-                mm = mm - 60;
+                hour++;
+                minutes -= 60;
             }
-            if (hh >= 24)
+            if (hour >= 24)
             {
-                hh = 0;
+                hour = 0;
             }
 
-            Console.WriteLine($"{hh}:{mm:d2}");
+            Console.WriteLine($"{hour}:{minutes:d2}");
         }
     }
 }
