@@ -1,4 +1,4 @@
-﻿namespace Password_Reset
+﻿namespace Problem_1___Password_Reset
 {
     internal class Program
     {
@@ -15,11 +15,11 @@
                 switch (arguments[0])
                 {
                     case "TakeOdd": newPassword = TakeOdd(newPassword); break;
-                    case "Cut": 
+                    case "Cut":
                         int index = int.Parse(arguments[1]);
                         int length = int.Parse(arguments[2]);
                         newPassword = Cut(newPassword, index, length); break;
-                    case "Substitute": 
+                    case "Substitute":
                         string oldString = arguments[1];
                         string newString = arguments[2];
                         newPassword = Substitute(newPassword, oldString, newString); break;

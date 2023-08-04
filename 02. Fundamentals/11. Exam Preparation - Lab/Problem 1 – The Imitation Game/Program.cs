@@ -1,4 +1,4 @@
-﻿namespace The_Imitation_Game
+﻿namespace Problem_1___The_Imitation_Game
 {
     internal class Program
     {
@@ -22,7 +22,6 @@
 
             Console.WriteLine($"The decrypted message is: {decryptedMessage}");
         }
-
 
         static string MoveMethod(int numberOfLetters, string message)
         {

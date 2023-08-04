@@ -1,4 +1,4 @@
-﻿namespace Plant_Discovery
+﻿namespace Problem_3___Plant_Discovery
 {
     internal class Program
     {
@@ -47,8 +47,7 @@
                     Console.WriteLine("error");
                 }
             }
-
-            ;
+            
             Console.WriteLine("Plants for the exhibition:");
             Console.WriteLine(string.Join("\n", plantInfo));
         }

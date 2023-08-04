@@ -1,12 +1,11 @@
-﻿namespace P_rates
+﻿namespace Problem_3___P_rates
 {
     internal class Program
     {
-        static Dictionary<string, Town> townDictionary = new Dictionary<string, Town>();
 
         static void Main(string[] args)
         {
-
+            Dictionary<string, Town> townDictionary = new Dictionary<string, Town>();
             string command;
             while ((command = Console.ReadLine()) != "Sail")
             {
@@ -36,11 +35,11 @@
                         string townName = arguments[1];
                         int killedPeople = int.Parse(arguments[2]);
                         int stolenGold = int.Parse(arguments[3]);
-                        Plunder(townName, stolenGold, killedPeople); break;
+                        Plunder(townName, stolenGold, killedPeople, townDictionary); break;
                     case "Prosper":
                         townName = arguments[1];
                         int earnedGold = int.Parse(arguments[2]);
-                        Prosper(townName, earnedGold); break;
+                        Prosper(townName, earnedGold, townDictionary); break;
                 }
             }
 
@@ -58,7 +57,7 @@
             }
         }
 
-        static void Prosper(string townName, int earnedGold)
+        static void Prosper(string townName, int earnedGold, Dictionary<string, Town> townDictionary)
         {
             if (earnedGold < 0)
             {
@@ -71,8 +70,7 @@
                 Console.WriteLine($"{earnedGold} gold added to the city treasury. {townName} now has {townDictionary[townName].Gold} gold.");
             }
         }
-
-        static void Plunder(string townName, int stolenGold, int killedPeople)
+        static void Plunder(string townName, int stolenGold, int killedPeople, Dictionary<string, Town> townDictionary)
         {
             if (townDictionary.ContainsKey(townName))
             {

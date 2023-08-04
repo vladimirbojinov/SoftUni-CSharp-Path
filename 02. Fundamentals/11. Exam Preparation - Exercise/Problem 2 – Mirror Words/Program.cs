@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Mirror_Words
+namespace Problem_2___Mirror_Words
 {
     internal class Program
     {
