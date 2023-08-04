@@ -5,13 +5,13 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05. Messages", "05. Messages\05. Messages.csproj", "{EF199232-562B-4638-BE52-60F5C10305CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Sort Numbers", "01. Sort Numbers\01. Sort Numbers.csproj", "{9EA79E5A-60CB-4814-A8CB-A9BC44431997}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. English Name of the Last Digit", "02. English Name of the Last Digit\02. English Name of the Last Digit.csproj", "{BDF9E29D-51A2-4116-A98D-F3B4B49AD359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. English Name of the Last Digit", "02. English Name of the Last Digit\02. English Name of the Last Digit.csproj", "{BDF9E29D-51A2-4116-A98D-F3B4B49AD359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Gaming Store", "03. Gaming Store\03. Gaming Store.csproj", "{A1CA3990-647B-43FC-BCDA-D072A54AE0B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Gaming Store", "03. Gaming Store\03. Gaming Store.csproj", "{A1CA3990-647B-43FC-BCDA-D072A54AE0B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04. Reverse String", "04. Reverse String\04. Reverse String.csproj", "{D04CC0AB-7538-4B0E-AA98-51E0C7A56263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Reverse String", "04. Reverse String\04. Reverse String.csproj", "{D04CC0AB-7538-4B0E-AA98-51E0C7A56263}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Sort Numbers", "01. Sort Numbers\01. Sort Numbers.csproj", "{421CED9E-A388-4FEE-955D-D99BD4845E37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{EF199232-562B-4638-BE52-60F5C10305CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF199232-562B-4638-BE52-60F5C10305CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF199232-562B-4638-BE52-60F5C10305CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EA79E5A-60CB-4814-A8CB-A9BC44431997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EA79E5A-60CB-4814-A8CB-A9BC44431997}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EA79E5A-60CB-4814-A8CB-A9BC44431997}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EA79E5A-60CB-4814-A8CB-A9BC44431997}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BDF9E29D-51A2-4116-A98D-F3B4B49AD359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BDF9E29D-51A2-4116-A98D-F3B4B49AD359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF9E29D-51A2-4116-A98D-F3B4B49AD359}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{D04CC0AB-7538-4B0E-AA98-51E0C7A56263}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D04CC0AB-7538-4B0E-AA98-51E0C7A56263}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D04CC0AB-7538-4B0E-AA98-51E0C7A56263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{421CED9E-A388-4FEE-955D-D99BD4845E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{421CED9E-A388-4FEE-955D-D99BD4845E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{421CED9E-A388-4FEE-955D-D99BD4845E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{421CED9E-A388-4FEE-955D-D99BD4845E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
