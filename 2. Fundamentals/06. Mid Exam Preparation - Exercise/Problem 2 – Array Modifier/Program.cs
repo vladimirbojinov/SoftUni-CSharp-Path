@@ -1,4 +1,4 @@
-﻿namespace Array_Modifier
+﻿namespace Problem_2___Array_Modifier
 {
     internal class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace Bonus_Scoring_System
+﻿namespace Problem_1___Bonus_Scoring_System
 {
     internal class Program
     {

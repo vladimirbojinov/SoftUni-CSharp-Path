@@ -1,12 +1,12 @@
-﻿namespace Inventory
+﻿namespace Problem_3___Inventory
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             List<string> inventory = Console.ReadLine()
-                .Split(", ")
-                .ToList();
+            .Split(", ")
+            .ToList();
 
             string command;
             while ((command = Console.ReadLine()) != "Craft!")
