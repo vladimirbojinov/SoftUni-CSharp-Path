@@ -4,20 +4,18 @@
     {
         static void Main(string[] args)
         {
-            int sum = 0;
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
 
-            int n1 = int.Parse(Console.ReadLine());
-            int n2 = int.Parse(Console.ReadLine());
+            int sum = num1 + num2;
 
-            sum = n1 + n2;
+            int num3 = int.Parse(Console.ReadLine());
 
-            int n3 = int.Parse(Console.ReadLine());
+            sum /= num3;
 
-            sum /= n3;
+            int num4 = int.Parse(Console.ReadLine());
 
-            int n4 = int.Parse(Console.ReadLine());
-
-            sum *= n4;
+            sum *= num4;
 
             Console.WriteLine(sum);
         }

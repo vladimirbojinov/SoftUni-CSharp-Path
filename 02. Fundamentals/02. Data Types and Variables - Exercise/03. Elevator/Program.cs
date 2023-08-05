@@ -4,18 +4,18 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            int p = int.Parse(Console.ReadLine());
+            int num = int.Parse(Console.ReadLine());
+            int people = int.Parse(Console.ReadLine());
 
-            int course = 0;
+            int courses = 0;
 
-            while (n > 0)
+            while (num > 0)
             {
-                course++;
-                n -= p;
+                courses++;
+                num -= people;
             }
 
-            Console.WriteLine(course);
+            Console.WriteLine(courses);
         }
     }
 }

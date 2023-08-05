@@ -12,7 +12,7 @@
             {
                 int addedWater = int.Parse(Console.ReadLine());
 
-                if (addedWater + currentCapacity == 255 || addedWater + currentCapacity < 255)
+                if (addedWater + currentCapacity <= 255)
                 {
                     currentCapacity += addedWater;
                 }

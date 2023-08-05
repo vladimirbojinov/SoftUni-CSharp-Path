@@ -20,7 +20,7 @@
                 double calc = snowball / time;
                 decimal snowballValue = (decimal)Math.Pow(calc, quality);
 
-                if (snowballValue > bestSnowBall)
+                if (snowballValue > bestSnowBallValue)
                 {
                     bestSnowBallValue = snowballValue;
                     bestSnowBall = snowball;

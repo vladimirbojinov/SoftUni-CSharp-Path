@@ -9,8 +9,7 @@
 
             for (int i = 0; i < numbers.Length; i++)
             {
-                char charNum = numbers[i];
-                string stringedNumber = charNum.ToString();
+                string stringedNumber = numbers[i].ToString();
 
                 sum += int.Parse(stringedNumber);
             }

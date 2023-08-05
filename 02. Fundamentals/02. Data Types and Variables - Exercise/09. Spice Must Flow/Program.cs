@@ -4,30 +4,25 @@
     {
         static void Main(string[] args)
         {
-            int extractedSpices = int.Parse(Console.ReadLine());
-
-            int currentSpices = 0;
+            int yield = int.Parse(Console.ReadLine());
+            int extractedYield = 0;
             int days = 0;
 
-            while (extractedSpices >= 100)
+            while (yield >= 100)
             {
                 days++;
-                currentSpices += extractedSpices;
-                currentSpices -= 26;
-                extractedSpices -= 10;
+                extractedYield += yield;
+                extractedYield -= 26;
+                yield -= 10;
             }
 
-            if (extractedSpices != 0 && extractedSpices - 26 > 0)
+            if (extractedYield - 26 >= 0)
             {
-                currentSpices -= 26; 
-                Console.WriteLine(days);
-                Console.WriteLine(currentSpices);
+                extractedYield -= 26;
             }
-            else
-            {
-                Console.WriteLine(days);
-                Console.WriteLine(currentSpices);
-            }
+
+            Console.WriteLine(days);
+            Console.WriteLine(extractedYield);
         }
     }
 }
