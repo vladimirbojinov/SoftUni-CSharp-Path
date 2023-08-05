@@ -1,4 +1,4 @@
-﻿namespace _6._Reversed_Chars
+﻿namespace _06._Reversed_Chars
 {
     internal class Program
     {

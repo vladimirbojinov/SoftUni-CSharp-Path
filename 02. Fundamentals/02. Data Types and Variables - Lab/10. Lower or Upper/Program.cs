@@ -8,7 +8,7 @@
 
             bool isUpperCase = char.IsUpper(text);
 
-            if (isUpperCase )
+            if (isUpperCase)
             {
                 Console.WriteLine("upper-case");
             }

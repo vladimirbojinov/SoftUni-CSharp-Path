@@ -4,24 +4,20 @@
     {
         static void Main(string[] args)
         {
-            int numbers = int.Parse(Console.ReadLine());
+            int numberOfLoops = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i <= numbers; i++)
+            for (int i = 1; i <= numberOfLoops; i++)
             {
-                int sum = 0;
-                int finalSum = 0;
-                int digit = i;
-
-                finalSum = i;
-
-                while (digit > 0)
+                int num = i;
+                int sumOfNumber = 0;
+                while (num > 0)
                 {
-                    sum += i % 10;
-                    digit = digit / 10;
+                    sumOfNumber += num % 10;
+                    num /= 10;
                 }
 
-                bool isSpeccial = (sum == 5) || (sum == 7) || (sum == 11);
-                Console.WriteLine("{0} -> {1}", finalSum, isSpeccial);
+                bool isSpecialNum = sumOfNumber == 5 || sumOfNumber == 7 || sumOfNumber == 11;
+                Console.WriteLine($"{i} -> {isSpecialNum}");
             }
         }
     }

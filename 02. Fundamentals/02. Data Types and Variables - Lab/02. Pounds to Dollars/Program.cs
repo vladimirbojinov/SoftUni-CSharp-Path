@@ -4,11 +4,11 @@
     {
         static void Main(string[] args)
         {
-            decimal brittishPound = decimal.Parse(Console.ReadLine());
+            decimal britishPound = decimal.Parse(Console.ReadLine());
 
-            decimal converterToUSDollar = brittishPound * 1.31m;
+            decimal converterToUSDollar = britishPound * 1.31m;
 
-            Console.WriteLine($"{converterToUSDollar:f3}");
+            Console.WriteLine($"{converterToUSDollar:F3}");
         }
     }
 }
