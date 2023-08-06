@@ -9,51 +9,51 @@
             for (int i = 0; i < loops; i++)
             {
                 string number = Console.ReadLine();
-                int n1 = 0;
-                int n2 = 0;
+                int num1 = 0;
+                int num2 = 0;
                 bool isSpace = false;
 
                 for (int j = 0; j < number.Length; j++)
                 {
-                    if (number[j].ToString() == " ")
+                    if (number[j] == ' ')
                     {
                         isSpace = true;
                     }
 
-                    if (number[j].ToString() != " ")
+                    if (number[j] != ' ')
                     {
-                        if (number[j].ToString() == "-")
+                        if (number[j] == ' ')
                         {
                             string temp = number[j].ToString();
                             temp = number[j+1].ToString();
                             if (isSpace == true)
                             {
-                                n2 += int.Parse(temp);
+                                num2 += int.Parse(temp);
                             }
                             else
                             {
-                                n1 += int.Parse(temp);
+                                num1 += int.Parse(temp);
                             }
                             j++;
                         }
                         else if (isSpace)
                         {
-                            n2 += int.Parse(number[j].ToString());
+                            num2 += int.Parse(number[j].ToString());
                         }
                         else
                         {
-                            n1 += int.Parse(number[j].ToString());
+                            num1 += int.Parse(number[j].ToString());
                         }
                     }
                 }
 
-                if (n1 > n2)
+                if (num1 > num2)
                 {
-                    Console.WriteLine(n1);
+                    Console.WriteLine(num1);
                 }
                 else
                 {
-                    Console.WriteLine(n2);
+                    Console.WriteLine(num2);
                 }
             }
         }

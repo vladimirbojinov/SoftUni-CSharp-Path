@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05. Decrypting Message", "0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04. Refactoring Prime Checker", "04. Refactoring Prime Checker\04. Refactoring Prime Checker.csproj", "{0220A693-0AB5-4931-81F6-725C402827E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Floating Equality", "03. Floating Equality\03. Floating Equality.csproj", "{D9F66545-49A3-4FA3-AF4B-AE0D3A7CD2C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Floating Equality", "03. Floating Equality\03. Floating Equality.csproj", "{D9F66545-49A3-4FA3-AF4B-AE0D3A7CD2C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Balanced Brackets", "06. Balanced Brackets\06. Balanced Brackets.csproj", "{161B7CB2-0A9D-458D-BCAE-7F5BFD5F33D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{D9F66545-49A3-4FA3-AF4B-AE0D3A7CD2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9F66545-49A3-4FA3-AF4B-AE0D3A7CD2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9F66545-49A3-4FA3-AF4B-AE0D3A7CD2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161B7CB2-0A9D-458D-BCAE-7F5BFD5F33D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161B7CB2-0A9D-458D-BCAE-7F5BFD5F33D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161B7CB2-0A9D-458D-BCAE-7F5BFD5F33D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161B7CB2-0A9D-458D-BCAE-7F5BFD5F33D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
