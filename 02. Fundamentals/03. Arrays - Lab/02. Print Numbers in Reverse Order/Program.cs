@@ -9,9 +9,10 @@
 
             for (int i = 0; i < loops; i++)
             {
-                int n = int.Parse(Console.ReadLine());
-                array[i] = n;
+                int num = int.Parse(Console.ReadLine());
+                array[i] = num;
             }
+
             for (int j = loops - 1; j >= 0; j--)
             {
                 Console.Write(array[j] + " ");

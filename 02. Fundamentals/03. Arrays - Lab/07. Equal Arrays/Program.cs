@@ -4,13 +4,11 @@
     {
         static void Main(string[] args)
         {
-            int[] array1 = Console
-                .ReadLine()
+            int[] array1 = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToArray();
-            int[] array2 = Console
-                .ReadLine()
+            int[] array2 = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToArray();

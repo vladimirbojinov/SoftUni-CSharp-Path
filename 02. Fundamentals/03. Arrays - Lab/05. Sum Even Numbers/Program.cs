@@ -4,8 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int[] row = Console
-                .ReadLine()
+            int[] row = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToArray();

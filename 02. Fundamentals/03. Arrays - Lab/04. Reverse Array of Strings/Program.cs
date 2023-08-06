@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            string[] row = Console.ReadLine().Split(" ");
+            string[] row = Console.ReadLine().Split();
 
             for (int i = row.Length - 1; i >= 0; i--)
             {
