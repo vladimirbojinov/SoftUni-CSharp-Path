@@ -11,13 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Zig-Zag Arrays", "03. Z
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04. Array Rotation", "04. Array Rotation\04. Array Rotation.csproj", "{E9D2C124-6431-4DC8-A421-C084EFF27982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Top Integers", "05. Top Integers\05. Top Integers.csproj", "{A516C288-0A13-47FE-BB20-6A5DF17B5076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05. Top Integers", "05. Top Integers\05. Top Integers.csproj", "{A516C288-0A13-47FE-BB20-6A5DF17B5076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Equal Sum", "06. Equal Sum\06. Equal Sum.csproj", "{7ACB4383-0958-4D02-9C40-34E8B13C90D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06. Equal Sum", "06. Equal Sum\06. Equal Sum.csproj", "{7ACB4383-0958-4D02-9C40-34E8B13C90D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. Max Sequence of Equal Elements", "07. Max Sequence of Equal Elements\07. Max Sequence of Equal Elements.csproj", "{51AFDC9A-85DE-46EF-8A28-DBCDB4A7718C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07. Max Sequence of Equal Elements", "07. Max Sequence of Equal Elements\07. Max Sequence of Equal Elements.csproj", "{51AFDC9A-85DE-46EF-8A28-DBCDB4A7718C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. Magic Sum", "08. Magic Sum\08. Magic Sum.csproj", "{11BBCB7A-FA78-4461-AF90-B0A3699BF72D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08. Magic Sum", "08. Magic Sum\08. Magic Sum.csproj", "{11BBCB7A-FA78-4461-AF90-B0A3699BF72D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09. Kamino Factory", "09. Kamino Factory\09. Kamino Factory.csproj", "{5BF7D126-2C97-4890-BD91-A67CF0EA1F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. LadyBugs", "10. LadyBugs\10. LadyBugs.csproj", "{9A08066E-A33B-4F6B-944B-A4ECADBFA37D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{11BBCB7A-FA78-4461-AF90-B0A3699BF72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11BBCB7A-FA78-4461-AF90-B0A3699BF72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11BBCB7A-FA78-4461-AF90-B0A3699BF72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF7D126-2C97-4890-BD91-A67CF0EA1F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF7D126-2C97-4890-BD91-A67CF0EA1F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF7D126-2C97-4890-BD91-A67CF0EA1F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF7D126-2C97-4890-BD91-A67CF0EA1F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A08066E-A33B-4F6B-944B-A4ECADBFA37D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A08066E-A33B-4F6B-944B-A4ECADBFA37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A08066E-A33B-4F6B-944B-A4ECADBFA37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A08066E-A33B-4F6B-944B-A4ECADBFA37D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

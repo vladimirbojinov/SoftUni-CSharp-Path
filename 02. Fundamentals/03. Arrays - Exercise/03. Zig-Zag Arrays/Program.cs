@@ -6,7 +6,7 @@
         {
             int loops = int.Parse(Console.ReadLine());
             string[] firstDigit = new string[loops];
-            string[] firstDigit2 = new string[loops];
+            string[] secondDigit = new string[loops];
 
             int counter = 0;
             for (int i = 0; i < loops; i++)
@@ -15,18 +15,18 @@
                 if ((i+1) % 2 == 0)
                 {
                     firstDigit[i] = numbers[1];
-                    firstDigit2[i] = numbers[0];
+                    secondDigit[i] = numbers[0];
                 }
                 else
                 {
-                    firstDigit2[i] = numbers[1];
+                    secondDigit[i] = numbers[1];
                     firstDigit[i] = numbers[0];
                 }
             }
 
             Console.Write(string.Join(" ", firstDigit));
             Console.WriteLine();
-            Console.Write(string.Join(" ", firstDigit2));
+            Console.Write(string.Join(" ", secondDigit));
         }
     }
 }
