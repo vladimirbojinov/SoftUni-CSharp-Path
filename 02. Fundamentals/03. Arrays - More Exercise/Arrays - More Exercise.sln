@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Encrypt, Sort and Print Array", "01. Encrypt, Sort and Print Array\01. Encrypt, Sort and Print Array.csproj", "{2AE9DBDD-967F-417E-99A9-632ECC37108B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. Encrypt, Sort and Print Array", "01. Encrypt, Sort and Print Array\01. Encrypt, Sort and Print Array.csproj", "{2AE9DBDD-967F-417E-99A9-632ECC37108B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. Pascal Triangle", "02. Pascal Triangle\02. Pascal Triangle.csproj", "{E3A21693-E3CA-44B8-AA5D-D8B1597336E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Recursive Fibonacci", "03. Recursive Fibonacci\03. Recursive Fibonacci.csproj", "{40E2CDB6-AE32-4F80-A95D-2D4414D875FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Fold and Sum", "04. Fold and Sum\04. Fold and Sum.csproj", "{A6C7DA6E-EB3D-4AD2-BC25-4073122040AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{2AE9DBDD-967F-417E-99A9-632ECC37108B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AE9DBDD-967F-417E-99A9-632ECC37108B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AE9DBDD-967F-417E-99A9-632ECC37108B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A21693-E3CA-44B8-AA5D-D8B1597336E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A21693-E3CA-44B8-AA5D-D8B1597336E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A21693-E3CA-44B8-AA5D-D8B1597336E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A21693-E3CA-44B8-AA5D-D8B1597336E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E2CDB6-AE32-4F80-A95D-2D4414D875FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E2CDB6-AE32-4F80-A95D-2D4414D875FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E2CDB6-AE32-4F80-A95D-2D4414D875FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E2CDB6-AE32-4F80-A95D-2D4414D875FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C7DA6E-EB3D-4AD2-BC25-4073122040AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C7DA6E-EB3D-4AD2-BC25-4073122040AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C7DA6E-EB3D-4AD2-BC25-4073122040AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C7DA6E-EB3D-4AD2-BC25-4073122040AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
