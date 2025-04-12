@@ -44,7 +44,7 @@
 
             double totalExpenses = headsetExpenses + mouseExpenses + keyboardExpenses + monitorExpenses;
 
-            Console.WriteLine($"Rage expenses: {totalExpenses:f2} lv.");
+            Console.WriteLine($"Rage expenses: {totalExpenses:F2} lv.");
         }
     }
 }

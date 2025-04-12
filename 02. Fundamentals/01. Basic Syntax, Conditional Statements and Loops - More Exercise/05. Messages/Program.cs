@@ -12,6 +12,7 @@
                 string numberAsString = Console.ReadLine();
                 int numberOfDigits = numberAsString.Length;
                 int mainDigit = int.Parse(numberAsString[0].ToString());
+
                 int offset = (mainDigit - 2) * 3;
 
                 if (mainDigit == 8 || mainDigit == 9)

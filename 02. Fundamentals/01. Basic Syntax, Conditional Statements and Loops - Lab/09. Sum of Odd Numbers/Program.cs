@@ -1,29 +1,19 @@
 ﻿namespace _09._Sum_of_Odd_Numbers
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int countOfOddNum = int.Parse(Console.ReadLine());
-            int currentValue = 1;
-            int sum = 0;
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			int oddNumCount = int.Parse(Console.ReadLine());
+			int sum = 0;
 
-            for (int i = 0; i < countOfOddNum; i++)
-            {
-                if (currentValue % 2 != 0)
-                {
-                    Console.WriteLine(currentValue);
-                    sum += currentValue;
-                }
-                else
-                {
-                    i--;
-                }
+			for (int i = 1; i <= oddNumCount; i++)
+			{
+				Console.WriteLine((i * 2) - 1);
+				sum += (i * 2) - 1;
+			}
 
-                currentValue++;
-            }
-
-            Console.WriteLine($"Sum: {sum}");
-        }
-    }
+			Console.WriteLine($"Sum: {sum}");
+		}
+	}
 }

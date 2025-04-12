@@ -8,53 +8,53 @@
             int age = int.Parse(Console.ReadLine());
             int ticketPrice = 0;
 
-            switch (dayType)
+            if (dayType == "weekday")
             {
-                case "weekday":
-                    if (0 <= age && age <= 18)
-                    {
-                        ticketPrice = 12;
-                    }
-                    else if (18 < age && age <= 64)
-                    {
-                        ticketPrice = 18;
-                    }
-                    else if(64 < age && age <= 122)
-                    {
-                        ticketPrice = 12;
-                    }
-                    break;
-                case "weekend":
-                    if (0 <= age && age <= 18)
-                    {
-                        ticketPrice = 15;
-                    }
-                    else if (18 < age && age <= 64)
-                    {
-                        ticketPrice = 20;
-                    }
-                    else if (64 < age && age <= 122)
-                    {
-                        ticketPrice = 15;
-                    }
-                    break;
-                case "holiday":
-                    if (0 <= age && age <= 18)
-                    {
-                        ticketPrice = 5;
-                    }
-                    else if (18 < age && age <= 64)
-                    {
-                        ticketPrice = 12;
-                    }
-                    else if (64 < age && age <= 122)
-                    {
-                        ticketPrice = 10;
-                    }
-                    break;
-            }
+				if (0 <= age && age <= 18)
+				{
+					ticketPrice = 12;
+				}
+				else if (18 < age && age <= 64)
+				{
+					ticketPrice = 18;
+				}
+				else if (64 < age && age <= 122)
+				{
+					ticketPrice = 12;
+				}
+			}
+            else if (dayType == "weekend")
+            {
+				if (0 <= age && age <= 18)
+				{
+					ticketPrice = 15;
+				}
+				else if (18 < age && age <= 64)
+				{
+					ticketPrice = 20;
+				}
+				else if (64 < age && age <= 122)
+				{
+					ticketPrice = 15;
+				}
+			}
+            else if (dayType == "holiday")
+            {
+				if (0 <= age && age <= 18)
+				{
+					ticketPrice = 5;
+				}
+				else if (18 < age && age <= 64)
+				{
+					ticketPrice = 12;
+				}
+				else if (64 < age && age <= 122)
+				{
+					ticketPrice = 10;
+				}
+			}
 
-            if (ticketPrice > 0 && age >= 0)
+            if (ticketPrice != 0)
             {
                 Console.WriteLine(ticketPrice + "$");
             }

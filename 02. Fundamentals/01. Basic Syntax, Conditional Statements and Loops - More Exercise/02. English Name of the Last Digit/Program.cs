@@ -5,9 +5,7 @@
         static void Main(string[] args)
         {
             string num = Console.ReadLine();
-
-            int length = num.Length;
-            string lastDigit = num[length - 1].ToString();
+            string lastDigit = num[num.Length - 1].ToString();
 
             switch (lastDigit)
             {

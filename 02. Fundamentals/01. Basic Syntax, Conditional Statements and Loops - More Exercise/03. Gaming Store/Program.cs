@@ -11,7 +11,6 @@
             while ((command = Console.ReadLine()) != "Game Time")
             {
                 double gamePrice = 0;
-                bool isGamePresent = true;
 
                 switch (command)
                 {
@@ -21,16 +20,16 @@
                     case "Honored 2": gamePrice = 59.99; break;
                     case "RoverWatch": gamePrice = 29.99; break;
                     case "RoverWatch Origins Edition": gamePrice = 39.99; break;
-                    default: Console.WriteLine("Not Found"); isGamePresent = false; break;
+                    default: Console.WriteLine("Not Found"); break;
                 }
 
-                if (budget >= gamePrice && isGamePresent)
+                if (budget >= gamePrice && gamePrice != 0)
                 {
                     totalSpent += gamePrice;
                     budget -= gamePrice;
                     Console.WriteLine($"Bought {command}");
                 }
-                else if (isGamePresent)
+                else
                 {
                     Console.WriteLine("Too Expensive");
                 }

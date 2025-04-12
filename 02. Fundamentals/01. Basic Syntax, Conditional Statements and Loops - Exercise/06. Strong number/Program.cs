@@ -1,37 +1,35 @@
 ﻿namespace _06._Strong_number
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            string numberAsString = Console.ReadLine();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			string numberAsString = Console.ReadLine();
 
-            int finalNum = 0;
+			int digitFactSum = 0;
+			for (int i = 0; i < numberAsString.Length; i++)
+			{
+				int factorial = 1;
+				char currentChar = numberAsString[i];
+				int currentNum = int.Parse(currentChar.ToString());
 
-            for (int i = 0; i < numberAsString.Length; i++)
-            {
-                int sum = 1;
-                string currentChar = numberAsString[i].ToString();
-                int currentNum = int.Parse(currentChar);
+				for (int j = 1; j <= currentNum; j++)
+				{
+					factorial *= j;
+				}
 
-                for (int j = 1; j <= currentNum; j++)
-                {
-                    sum *= j;
-                }
+				digitFactSum += factorial;
+			}
 
-                finalNum += sum;
-            }
-
-            int convertedNumber = int.Parse(numberAsString);
-
-            if (finalNum == convertedNumber)
-            {
-                Console.WriteLine("yes");
-            }
-            else
-            {
-                Console.WriteLine("no");
-            }
-        }
-    }
+			int convertedNumber = int.Parse(numberAsString);
+			if (digitFactSum == convertedNumber)
+			{
+				Console.WriteLine("yes");
+			}
+			else
+			{
+				Console.WriteLine("no");
+			}
+		}
+	}
 }

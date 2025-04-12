@@ -10,95 +10,59 @@
 
             while (command != "Start")
             {
-                double money = double.Parse(command);
+                double coin = double.Parse(command);
 
-                switch (money)
+                switch (coin)
                 {
-                    case 1:
-                    case 2:
-                    case 0.5:
-                    case 0.2:
-                    case 0.1:
-                        totalMoney += money;
+                    case 1.00:
+                    case 2.00:
+                    case 0.50:
+                    case 0.20:
+                    case 0.10:
+                        totalMoney += coin;
                         break;
-                    default:
-                        Console.WriteLine($"Cannot accept {money}"); break;
+                    default: Console.WriteLine($"Cannot accept {coin}"); break;
                 }
 
                 command = Console.ReadLine();
             }
-
-            command = Console.ReadLine();
-
+            
+			command = Console.ReadLine();
             while (command != "End")
             {
-                string product = command.ToLower();
+				string product = command.ToLower();
+                double productCost = 0;
 
                 switch (product)
                 {
-                    case "nuts":
-                        if (totalMoney - 2.00 >= 0)
-                        {
-                            totalMoney -= 2.00;
-                            Console.WriteLine($"Purchased {product}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry, not enough money");
-                        }
-                        break;
-                    case "water":
-                        if (totalMoney - 0.70 >= 0)
-                        {
-                            totalMoney -= 0.70;
-                            Console.WriteLine($"Purchased {product}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry, not enough money");
-                        }
-                        break;
-                    case "crisps":
-                        if (totalMoney - 1.50 >= 0)
-                        {
-                            totalMoney -= 1.50;
-                            Console.WriteLine($"Purchased {product}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry, not enough money");
-                        }
-                        break;
-                    case "soda":
-                        if (totalMoney - 0.80 >= 0)
-                        {
-                            totalMoney -= 0.80;
-                            Console.WriteLine($"Purchased {product}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry, not enough money");
-                        }
-                        break;
-                    case "coke":
-                        if (totalMoney - 1.00 >= 0)
-                        {
-                            totalMoney -= 1.00;
-                            Console.WriteLine($"Purchased {product}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry, not enough money");
-                        }
-                        break;
-
-                    default: Console.WriteLine("Invalid product"); break;
+                    case "nuts": productCost = 2.00; break;
+                    case "water": productCost = 0.70; break;
+                    case "crisps": productCost = 1.50; break;
+                    case "soda": productCost = 0.80; break;
+                    case "coke": productCost = 1.00; break;
                 }
 
-                command = Console.ReadLine();
-            }
+                if (productCost != 0)
+                {
+					if (totalMoney - productCost >= 0)
+					{
+						totalMoney -= productCost;
+						Console.WriteLine($"Purchased {product}");
+					}
+					else
+					{
+						Console.WriteLine("Sorry, not enough money");
+					}
+				}
+                else
+                {
+				    Console.WriteLine("Invalid product");	
+                }
 
-            Console.WriteLine($"Change: {totalMoney:f2}");
+				command = Console.ReadLine();
+			}
+
+            Console.WriteLine($"Change: {totalMoney:F2}");
         }
     }
 }

@@ -12,14 +12,16 @@
             if (minutes >= 60)
             {
                 hour++;
-                minutes -= 60;
-            }
-            if (hour >= 24)
-            {
-                hour = 0;
-            }
 
-            Console.WriteLine($"{hour}:{minutes:d2}");
+				if (hour >= 24)
+				{
+					hour = 0;
+				}
+
+				minutes -= 60;
+            }            
+
+            Console.WriteLine($"{hour}:{minutes:D2}");
         }
     }
 }

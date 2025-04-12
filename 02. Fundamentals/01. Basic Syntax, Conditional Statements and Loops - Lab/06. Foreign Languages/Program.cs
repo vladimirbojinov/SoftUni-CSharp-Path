@@ -8,7 +8,7 @@
 
             switch (country)
             {
-                case "Usa":
+                case "USA":
                 case "England":
                     Console.WriteLine("English"); break;
                 case "Spain":
