@@ -4,12 +4,11 @@
     {
         static void Main(string[] args)
         {
-            int num = int.Parse(Console.ReadLine());
+			string name = Console.ReadLine();
+			int age = int.Parse(Console.ReadLine());
+			double grade = double.Parse(Console.ReadLine());
 
-            for (int i = 1; i <= 10; i++)
-            {
-                Console.WriteLine($"{num} X {i} = {num * i}");
-            }
-        }
+			Console.WriteLine($"Name: {name}, Age: {age}, Grade: {grade:F2}");
+		}
     }
 }
