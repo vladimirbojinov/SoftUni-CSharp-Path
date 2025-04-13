@@ -10,10 +10,8 @@
 
             for (int i = 0; i < loops; i++)
             {
-                decimal num = decimal.Parse(Console.ReadLine());
-
-                sum += num;
-            }
+                sum += decimal.Parse(Console.ReadLine());
+			}
 
             Console.WriteLine(sum);
         }

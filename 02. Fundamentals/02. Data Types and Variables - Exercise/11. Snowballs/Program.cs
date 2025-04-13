@@ -6,10 +6,10 @@
         {
             int loops = int.Parse(Console.ReadLine());
 
-            decimal bestSnowBallValue = 0m;
+			double bestSnowBallValue = 0;
             int bestSnowBall = 0;
-            int bestTime = 0;
-            int bestQuality = 0;
+            int bestSnowBallTime = 0;
+            int bestSnowBallQuality = 0;
 
             for (int i = 0; i < loops; i++)
             {
@@ -17,19 +17,18 @@
                 int time = int.Parse(Console.ReadLine());
                 int quality = int.Parse(Console.ReadLine());
 
-                double calc = snowball / time;
-                decimal snowballValue = (decimal)Math.Pow(calc, quality);
+				double snowballValue = Math.Pow(snowball / time, quality);
 
                 if (snowballValue > bestSnowBallValue)
                 {
                     bestSnowBallValue = snowballValue;
                     bestSnowBall = snowball;
-                    bestTime = time;
-                    bestQuality = quality;
+                    bestSnowBallTime = time;
+                    bestSnowBallQuality = quality;
                 }
             }
 
-            Console.WriteLine($"{bestSnowBall} : {bestTime} = {bestSnowBallValue} ({bestQuality})");
+            Console.WriteLine($"{bestSnowBall} : {bestSnowBallTime} = {bestSnowBallValue} ({bestSnowBallQuality})");
         }
     }
 }

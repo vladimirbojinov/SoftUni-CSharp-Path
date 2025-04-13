@@ -8,7 +8,7 @@
 
             decimal meterInKm = meters / 1000;
 
-            Console.WriteLine($"{meterInKm:f2}");
+            Console.WriteLine($"{meterInKm:F2}");
         }
     }
 }

@@ -6,8 +6,8 @@
         {
             int loops = int.Parse(Console.ReadLine());
 
-            string bestModel = string.Empty;
-            double bestKeg = 0;
+            string bestKegModel = string.Empty;
+            double bestKegVolume = 0;
 
             for (int i = 0; i < loops; i++)
             {
@@ -17,14 +17,14 @@
 
                 double volume = Math.PI * Math.Pow(radius, 2) * high;
 
-                if (bestKeg < volume)
+                if (bestKegVolume < volume)
                 {
-                    bestModel = model;
-                    bestKeg = volume;
+                    bestKegModel = model;
+                    bestKegVolume = volume;
                 }
             }
 
-            Console.WriteLine(bestModel);
+            Console.WriteLine(bestKegModel);
         }
     }
 }

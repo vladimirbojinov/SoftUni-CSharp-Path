@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            int firstChar = int.Parse(Console.ReadLine());
-            int secChar = int.Parse(Console.ReadLine());
+            int firstSymbol = int.Parse(Console.ReadLine());
+            int secondSymbol = int.Parse(Console.ReadLine());
 
-            for (int i = firstChar; i <= secChar; i++)
+            for (int i = firstSymbol; i <= secondSymbol; i++)
             {
                 Console.Write((char)i + " ");
             }

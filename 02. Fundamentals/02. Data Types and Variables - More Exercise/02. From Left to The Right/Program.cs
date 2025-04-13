@@ -1,61 +1,69 @@
 ﻿namespace _02._From_Left_to_The_Right
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int loops = int.Parse(Console.ReadLine());
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			int loops = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < loops; i++)
-            {
-                string number = Console.ReadLine();
-                int num1 = 0;
-                int num2 = 0;
-                bool isSpace = false;
+			for (int i = 0; i < loops; i++)
+			{
+				int leftSum = 0;
+				int rightSum = 0;
 
-                for (int j = 0; j < number.Length; j++)
-                {
-                    if (number[j] == ' ')
-                    {
-                        isSpace = true;
-                    }
+				long leftNum = 0;
+				long rightNum = 0;
 
-                    if (number[j] != ' ')
-                    {
-                        if (number[j] == ' ')
-                        {
-                            string temp = number[j].ToString();
-                            temp = number[j+1].ToString();
-                            if (isSpace == true)
-                            {
-                                num2 += int.Parse(temp);
-                            }
-                            else
-                            {
-                                num1 += int.Parse(temp);
-                            }
-                            j++;
-                        }
-                        else if (isSpace)
-                        {
-                            num2 += int.Parse(number[j].ToString());
-                        }
-                        else
-                        {
-                            num1 += int.Parse(number[j].ToString());
-                        }
-                    }
-                }
+				bool isSpaceSeen = false;
+				bool isMinusSeen = false;
 
-                if (num1 > num2)
-                {
-                    Console.WriteLine(num1);
-                }
-                else
-                {
-                    Console.WriteLine(num2);
-                }
-            }
-        }
-    }
+				string input = Console.ReadLine();
+
+				for (int j = 0; j < input.Length; j++)
+				{
+					char currentSymbol = input[j];
+
+					if (currentSymbol == ' ')
+					{
+						isSpaceSeen = true;
+						isMinusSeen = false;
+						continue;
+					}
+
+					if (currentSymbol == '-')
+					{
+						isMinusSeen = true;
+						continue;
+					}
+
+					int currentDigit = int.Parse(currentSymbol.ToString());
+
+					if (isMinusSeen)
+					{
+						currentDigit *= -1;
+					}
+
+					if (isSpaceSeen)
+					{
+						rightSum += currentDigit;
+						rightNum = (rightNum * 10) + currentDigit;
+					}
+					else
+					{
+						leftSum += currentDigit;
+						leftNum = (leftNum * 10) + currentDigit;
+					}
+				}
+
+				if (leftNum > rightNum)
+				{
+					Console.WriteLine(Math.Abs(leftSum));
+				}
+				else
+				{
+					Console.WriteLine(Math.Abs(rightSum));
+				}
+			}
+		}
+	}
 }

@@ -8,7 +8,8 @@
             char symbol2 = char.Parse(Console.ReadLine());
             char symbol3 = char.Parse(Console.ReadLine());
 
-            Console.WriteLine($"{symbol1}{symbol2}{symbol3}");
+            string text = $"{symbol1}{symbol2}{symbol3}";
+			Console.WriteLine(text);
         }
     }
 }

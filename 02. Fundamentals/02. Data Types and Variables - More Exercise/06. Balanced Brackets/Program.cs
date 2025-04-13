@@ -1,54 +1,55 @@
 ﻿namespace _06._Balanced_Brackets
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int loops = int.Parse(Console.ReadLine());
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			int loops = int.Parse(Console.ReadLine());
 
-            bool leftBracketSeen = false;
-            bool rightBracketSeen = false;
+			bool isBalanced = true;
+			bool isClosed = false;
+			bool isLastOpenBracket = false;
 
-            bool isBalanced = false;
+			int openBrackets = 0;
 
-            for (int i = 0; i < loops; i++)
-            {
-                string input = Console.ReadLine();
+			for (int i = 0; i <= loops; i++)
+			{
+				string input = Console.ReadLine();
 
-                if (leftBracketSeen && input == "(" || rightBracketSeen && input == ")")
-                {
-                    isBalanced = false;
-                    break;
-                }
+				if (input == "(")
+				{
+					isClosed = false;
+					if (isLastOpenBracket)
+					{
+						isBalanced = false;
+						break;
+					}
 
-                if (input == "(")
-                {
-                    leftBracketSeen = true;
-                    isBalanced = false;
-                }
+					openBrackets++;
+					isLastOpenBracket = true;
+				}
+				else if (input == ")")
+				{
+					isLastOpenBracket = false;
+					isClosed = true;
 
-                if (input == ")")
-                {
-                    rightBracketSeen = true;
-                    isBalanced = false;
-                }
+					openBrackets--;
+					if (openBrackets < 0)
+					{
+						isBalanced = false;
+						break;
+					}
+				}
+			}
 
-                if (leftBracketSeen && rightBracketSeen)
-                {
-                    isBalanced = true;
-                    leftBracketSeen = false;
-                    rightBracketSeen = false;
-                }
-            }
-
-            if (isBalanced)
-            {
-                Console.WriteLine("BALANCED");
-            }
-            else
-            {
-                Console.WriteLine("UNBALANCED");
-            }
-        }
-    }
+			if (isBalanced && isClosed)
+			{
+				Console.WriteLine("BALANCED");
+			}
+			else
+			{
+				Console.WriteLine("UNBALANCED");
+			}
+		}
+	}
 }

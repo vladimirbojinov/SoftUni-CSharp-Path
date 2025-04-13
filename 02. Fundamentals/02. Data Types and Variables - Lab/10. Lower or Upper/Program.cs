@@ -4,11 +4,9 @@
     {
         static void Main(string[] args)
         {
-            char text = char.Parse(Console.ReadLine());
+            char symbol = char.Parse(Console.ReadLine());
 
-            bool isUpperCase = char.IsUpper(text);
-
-            if (isUpperCase)
+            if (char.IsUpper(symbol))
             {
                 Console.WriteLine("upper-case");
             }

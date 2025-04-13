@@ -4,18 +4,17 @@
     {
         static void Main(string[] args)
         {
-            Console.Write("Length: ");
-            double length = double.Parse(Console.ReadLine());
+			Console.WriteLine("Length: ");
+			double length = double.Parse(Console.ReadLine());
 
-            Console.Write("Width: ");
-            double width = double.Parse(Console.ReadLine());
+			Console.WriteLine("Width: ");
+			double width = double.Parse(Console.ReadLine());
 
-            Console.Write("Height: ");
-            double height = double.Parse(Console.ReadLine());
+			Console.WriteLine("Height: ");
+			double height = double.Parse(Console.ReadLine());
 
-            height = (length * width * height) / 3;
-
-            Console.Write($"Pyramid Volume: {height:F2}");
-        }
+			double volume = (length + width + height) / 3;
+			Console.WriteLine($"Pyramid Volume: {volume:F2}");
+		}
     }
 }

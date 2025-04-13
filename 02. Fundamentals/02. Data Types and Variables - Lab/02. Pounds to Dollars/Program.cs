@@ -6,9 +6,9 @@
         {
             decimal britishPound = decimal.Parse(Console.ReadLine());
 
-            decimal converterToUSDollar = britishPound * 1.31m;
+            decimal usDollars = britishPound * 1.31m;
 
-            Console.WriteLine($"{converterToUSDollar:F3}");
+            Console.WriteLine($"{usDollars:F3}");
         }
     }
 }

@@ -4,14 +4,13 @@
     {
         static void Main(string[] args)
         {
-            string numbers = Console.ReadLine();
+            int number = int.Parse(Console.ReadLine());
             int sum = 0;
 
-            for (int i = 0; i < numbers.Length; i++)
+            while (number != 0)
             {
-                string stringedNumber = numbers[i].ToString();
-
-                sum += int.Parse(stringedNumber);
+                sum += number % 10;
+                number /= 10;
             }
 
             Console.WriteLine(sum);

@@ -4,16 +4,10 @@
     {
         static void Main(string[] args)
         {
-            int num = int.Parse(Console.ReadLine());
-            int people = int.Parse(Console.ReadLine());
+            double num = int.Parse(Console.ReadLine());
+			double people = int.Parse(Console.ReadLine());
 
-            int courses = 0;
-
-            while (num > 0)
-            {
-                courses++;
-                num -= people;
-            }
+            double courses = Math.Ceiling(num / people);
 
             Console.WriteLine(courses);
         }

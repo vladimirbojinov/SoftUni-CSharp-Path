@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 2; i <= n; i++)
+            int loops = int.Parse(Console.ReadLine());
+            for (int i = 2; i <= loops; i++)
             {
                 bool isPrime = true;
                 for (int j = 2; j < i; j++)
@@ -17,11 +17,8 @@
                     }
                 }
 
-                string bolean = isPrime.ToString();
-                bolean = bolean.ToLower();
-
-                Console.WriteLine($"{i} -> {bolean}");
-            }
+				Console.WriteLine("{0} -> {1}", i, isPrime);
+			}
         }
     }
 }

@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\08. Beer Kegs\08. Beer Kegs.csproj" />
+  </ItemGroup>
+
 </Project>

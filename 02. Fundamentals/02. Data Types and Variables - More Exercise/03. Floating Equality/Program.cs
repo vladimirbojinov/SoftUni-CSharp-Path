@@ -8,10 +8,9 @@
             decimal n2 = decimal.Parse(Console.ReadLine());
             decimal tolerance = 0.000001m;
 
+            bool isEqual = Math.Abs(n1 - n2) < tolerance;
 
-            bool isEquel = Math.Abs(n1 - n2) < tolerance;
-
-            if (isEquel)
+            if (isEqual)
             {
                 Console.WriteLine(true);
             }

@@ -10,11 +10,11 @@
 
             for (int i = 0; i < loops; i++)
             {
-                int addedWater = int.Parse(Console.ReadLine());
+                int pouredWater = int.Parse(Console.ReadLine());
 
-                if (addedWater + currentCapacity <= 255)
+                if (pouredWater + currentCapacity <= 255)
                 {
-                    currentCapacity += addedWater;
+                    currentCapacity += pouredWater;
                 }
                 else
                 {

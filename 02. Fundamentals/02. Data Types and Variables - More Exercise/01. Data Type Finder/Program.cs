@@ -1,42 +1,39 @@
 ﻿namespace _01._Data_Type_Finder
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            string input = Console.ReadLine();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			string input = Console.ReadLine();
+			string type = string.Empty;
 
-            double inputDouble = 0;
-            int inputInt = 0;
-            string inputString = "";
-            char inputChar = ' ';
-            bool inputBool = false;
+			while (input != "END")
+			{
+				if (int.TryParse(input, out int intValue))
+				{
+					type = "integer";
+				}
+				else if (double.TryParse(input, out double doubleValue))
+				{
+					type = "floating point";
+				}
+				else if (char.TryParse(input, out char charValue))
+				{
+					type = "character";
+				}
+				else if (bool.TryParse(input, out bool boolValue))
+				{
+					type = "boolean";
+				}
+				else
+				{
+					type = "string";
+				}
 
-            while (input != "END")
-            {
-                if (int.TryParse(input, out inputInt))
-                {
-                    Console.WriteLine($"{input} is integer type");
-                }
-                else if (double.TryParse(input, out inputDouble))
-                {
-                    Console.WriteLine($"{input} is floating point type");
-                }
-                else if (char.TryParse(input, out inputChar))
-                {
-                    Console.WriteLine($"{input} is character type");
-                }
-                else if (bool.TryParse(input, out inputBool))
-                {
-                    Console.WriteLine($"{input} is boolean type");
-                }
-                else
-                {
-                    Console.WriteLine($"{input} is string type");
-                }
+				Console.WriteLine($"{input} is {type} type");
 
-                input = Console.ReadLine();
-            }
-        }
-    }
+				input = Console.ReadLine();
+			}
+		}
+	}
 }
