@@ -4,21 +4,21 @@
     {
         static void Main(string[] args)
         {
-            double[] numberRow = Console.ReadLine()
+            double[] numbersRow = Console.ReadLine()
                 .Split()
                 .Select(double.Parse)
                 .ToArray();
 
-            int[] rounded = new int[numberRow.Length];
+            int[] roundedNumbers = new int[numbersRow.Length];
             
-            for (int i = 0; i < rounded.Length; i++)
+            for (int i = 0; i < roundedNumbers.Length; i++)
             {
-                rounded[i] = (int)Math.Round(numberRow[i], MidpointRounding.AwayFromZero);
+                roundedNumbers[i] = (int)Math.Round(numbersRow[i], MidpointRounding.AwayFromZero);
             }
 
-            for (int j = 0;j < rounded.Length; j++)
+            for (int j = 0;j < roundedNumbers.Length; j++)
             {
-                Console.WriteLine($"{numberRow[j]} => {rounded[j]}");
+                Console.WriteLine($"{numbersRow[j]} => {roundedNumbers[j]}");
             }
         }
     }

@@ -1,136 +1,89 @@
 ﻿namespace _10._LadyBugs
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int fieldSize = int.Parse(Console.ReadLine());
-            int[] field = new int[fieldSize];
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			int fieldSize = int.Parse(Console.ReadLine());
+			int[] ladybugPositions = Console.ReadLine()
+				.Split()
+				.Select(int.Parse)
+				.ToArray();
 
-            int[] bugPositions = Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
-                .ToArray();
+			int[] field = new int[fieldSize];
+			foreach (int position in ladybugPositions)
+			{
+				if (position < 0 || position > field.Length - 1)
+				{
+					continue;
+				}
 
-            for (int i = 0; i < bugPositions.Length; i++)
-            {
-                int index = bugPositions[i];
+				field[position] = 1;
+			}
 
-                if (index >= 0 && index < field.Length)
-                {
-                    field[index] = 1;
-                }
-            }
+			string command;
+			while ((command = Console.ReadLine()) != "end")
+			{
+				string[] input = command.Split();
 
-            string command;
-            while ((command = Console.ReadLine()) != "end")
-            {
-                string[] arguments = command.Split();
+				int position = int.Parse(input[0]);
+				string direction = input[1];
+				int flyLength = int.Parse(input[2]);
 
-                switch (arguments[1])
-                {
-                    case "right":
-                        int ladybugIndex = int.Parse(arguments[0]);
-                        if (ladybugIndex >= 0 && ladybugIndex < field.Length)
-                        {
-                            if (field[ladybugIndex] == 0)
-                            {
-                                continue;
-                            }
+				if ((position < 0 || position > field.Length - 1) ||
+					(field[position] == 0))
+				{
+					continue;
+				}
 
-                            int flyLength = int.Parse(arguments[2]);
+				int move = 0;
+				if (direction == "right")
+				{
+					move = 1;
+				}
+				else if (direction == "left")
+				{
+					move = -1;
+				}
 
-                            field[ladybugIndex] = 0;
-                            int newLadybugIndex;
+				if (flyLength < 0)
+				{
+					move *= -1;
+					flyLength = Math.Abs(flyLength);
+				}
 
-                            if (flyLength < 0)
-                            {
-                                flyLength = Math.Abs(flyLength);
-                                newLadybugIndex = ladybugIndex - flyLength;
-                            }
-                            else
-                            {
-                                newLadybugIndex = ladybugIndex + flyLength;
-                            }
+				field[position] = 0;
+				while (flyLength != 0)
+				{
+					position += move;
 
-                            if (newLadybugIndex < 0 || newLadybugIndex >= field.Length)
-                            {
-                                field[ladybugIndex] = 0;
-                                continue;
-                            }
+					if (position < 0 || position > field.Length - 1)
+					{
+						break;
+					}
 
-                            while (field[newLadybugIndex] == 1)
-                            {
-                                newLadybugIndex++;
+					while (field[position] == 1)
+					{
+						position += move;
 
-                                if (newLadybugIndex < 0 || newLadybugIndex >= field.Length)
-                                {
-                                    break;
-                                }
-                            }
+						if (position < 0 || position > field.Length - 1)
+						{
+							break;
+						}
+					}
 
-                            if (newLadybugIndex < 0 || newLadybugIndex >= field.Length)
-                            {
-                                field[ladybugIndex] = 0;
-                                continue;
-                            }
+					flyLength--;
+				}
 
-                            field[newLadybugIndex] = 1;
-                        }
-                        break;
+				if (position < 0 || position > field.Length - 1)
+				{
+					continue;
+				}
 
-                    case "left":
-                        ladybugIndex = int.Parse(arguments[0]);
-                        if (ladybugIndex >= 0 && ladybugIndex < field.Length)
-                        {
-                            if (field[ladybugIndex] == 0)
-                            {
-                                continue;
-                            }
-                            int flyLength = int.Parse(arguments[2]);
+				field[position] = 1;
+			}
 
-                            field[ladybugIndex] = 0;
-                            int newLadybugIndex;
-
-                            if (flyLength < 0)
-                            {
-                                flyLength = Math.Abs(flyLength);
-                                newLadybugIndex = ladybugIndex + flyLength;
-                            }
-                            else
-                            {
-                                newLadybugIndex = ladybugIndex - flyLength;
-                            }
-
-                            if (newLadybugIndex < 0 || newLadybugIndex >= field.Length)
-                            {
-                                field[ladybugIndex] = 0;
-                                continue;
-                            }
-
-                            while (field[newLadybugIndex] == 1)
-                            {
-                                newLadybugIndex--;
-
-                                if (newLadybugIndex >= 0 && newLadybugIndex < field.Length)
-                                {
-                                    break;
-                                }
-                            }
-
-                            if (newLadybugIndex < 0 || newLadybugIndex >= field.Length)
-                            {
-                                field[ladybugIndex] = 0;
-                                continue;
-                            }
-
-                            field[newLadybugIndex] = 1;
-                        }
-                        break;
-                }
-            }
-
-            Console.WriteLine(string.Join(" ", field));
-        }
-    }
+			Console.WriteLine(string.Join(' ', field));
+		}
+	}
 }

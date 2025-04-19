@@ -4,32 +4,28 @@
 	{
 		static void Main(string[] args)
 		{
-			int numberOfRows = int.Parse(Console.ReadLine());
+			int rowCount = int.Parse(Console.ReadLine());
 
-			int[] row = { 1 };
-			Console.WriteLine(1);
-			for (int i = 0; i < numberOfRows - 1; i++)
+			int[] oldRow = new int[1];
+			int[] newRow = new int[1];
+
+			for (int i = 0; i < rowCount; i++)
 			{
-				int[] changedRow = new int[row.Length + 1];
-				for (int j = 0; j < row.Length + 1; j++)
+				for (int j = 0; j < newRow.Length; j++)
 				{
-					if (j == 0 || j == row.Length)
+					if (j == 0 || j == newRow.Length - 1)
 					{
+						newRow[j] = 1;
 					}
 					else
 					{
-						int index = j;
-						changedRow[j] = row[index--] + row[index];
+						newRow[j] = oldRow[j - 1] + oldRow[j];
 					}
 				}
 
-				changedRow[0] = 1;
-				int length = changedRow.Length - 1;
-				changedRow[length] = 1;
-
-				Console.WriteLine(string.Join(" ", changedRow));
-
-				row = changedRow;
+				Console.WriteLine(string.Join(' ', newRow));
+				oldRow = newRow;
+				newRow = new int[oldRow.Length + 1];
 			}
 		}
 	}

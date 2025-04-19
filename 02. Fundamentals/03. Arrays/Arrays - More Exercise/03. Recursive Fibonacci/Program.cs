@@ -6,19 +6,19 @@ namespace _03._Recursive_Fibonacci
 	{
 		static void Main(string[] args)
 		{
-			int n = int.Parse(Console.ReadLine());
+			int num = int.Parse(Console.ReadLine());
 
-			Console.WriteLine(Fibonacci(n));
+			Console.WriteLine(Fibonacci(num));
 
-			int Fibonacci(int n) 
+			int Fibonacci(int num)
 			{
-				if (n == 0 || n == 1) 
+				if (num == 0 || num == 1)
 				{
-					return n; 
+					return num;
 				}
-				else 
+				else
 				{
-					return Fibonacci(n - 1) + Fibonacci(n - 2); 
+					return Fibonacci(num - 1) + Fibonacci(num - 2);
 				}
 			}
 		}
