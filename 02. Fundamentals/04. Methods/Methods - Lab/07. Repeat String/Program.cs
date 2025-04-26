@@ -5,14 +5,14 @@
         static void Main(string[] args)
         {
             string text = Console.ReadLine();
-            int loop = int.Parse(Console.ReadLine());
+            int loops = int.Parse(Console.ReadLine());
 
-            StringRepeater(loop, text);
+            StringRepeater(loops, text);
         }
 
-        static void StringRepeater(int n, string text)
+        static void StringRepeater(int loops, string text)
         {
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < loops; i++)
             {
                 Console.Write(text);
             }

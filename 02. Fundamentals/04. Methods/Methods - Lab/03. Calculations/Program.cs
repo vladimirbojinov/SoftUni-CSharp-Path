@@ -7,35 +7,35 @@ namespace _03._Calculations
         static void Main(string[] args)
         {
             string command = Console.ReadLine();
-            int n1 = int.Parse(Console.ReadLine());
-            int n2 = int.Parse(Console.ReadLine());
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
 
             switch (command)
             {
-                case "add": Add(n1, n2); break;
-                case "subtract": Subtract(n1, n2); break;
-                case "multiply": Multiply(n1, n2); break;
-                case "divide": Divide(n1, n2); break;
+                case "add": Add(num1, num2); break;
+                case "subtract": Subtract(num1, num2); break;
+                case "multiply": Multiply(num1, num2); break;
+                case "divide": Divide(num1, num2); break;
             }
         }
 
-        static void Add(int n1, int n2)
+        static void Add(int num1, int num2)
         {
-            Console.WriteLine(n1 + n2);
+            Console.WriteLine(num1 + num2);
         }
 
-        static void Subtract(int n1, int n2)
+        static void Subtract(int num1, int num2)
         {
-            Console.WriteLine(n1 - n2);
+            Console.WriteLine(num1 - num2);
         }
 
-        static void Multiply(int n1, int n2)
+        static void Multiply(int num1, int num2)
         {
-            Console.WriteLine(n1 * n2);
+            Console.WriteLine(num1 * num2);
         }
-        static void Divide(int n1, int n2)
+        static void Divide(int num1, int num2)
         {
-            Console.WriteLine(n1 / n2);
+            Console.WriteLine(num1 / num2);
         }
     }
 }

@@ -4,21 +4,21 @@
     {
         static void Main(string[] args)
         {
-            int n1 = int.Parse(Console.ReadLine());
+            int num1 = int.Parse(Console.ReadLine());
             string symbol = Console.ReadLine();
-            int n2 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
 
-            Calculations(n1, n2, symbol);
+            Calculate(num1, num2, symbol);
         }
 
-        static void Calculations(int n1, int n2, string operations)
+        static void Calculate(int num1, int num2, string operation)
         {
-            switch (operations)
+            switch (operation)
             {
-                case "+": Console.WriteLine(n1 + n2); break;
-                case "-": Console.WriteLine(n1 - n2); break;
-                case "*": Console.WriteLine(n1 * n2); break;
-                case "/": Console.WriteLine(n1 / n2); break;
+                case "+": Console.WriteLine(num1 + num2); break;
+                case "-": Console.WriteLine(num1 - num2); break;
+                case "*": Console.WriteLine(num1 * num2); break;
+                case "/": Console.WriteLine(num1 / num2); break;
             }
         }
     }

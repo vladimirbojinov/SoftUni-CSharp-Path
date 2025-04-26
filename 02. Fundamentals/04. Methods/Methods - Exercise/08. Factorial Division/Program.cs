@@ -4,32 +4,22 @@
     {
         static void Main(string[] args)
         {
-            double n1 = int.Parse(Console.ReadLine());
-            double n2 = int.Parse(Console.ReadLine());
+            double num1 = double.Parse(Console.ReadLine());
+            double num2 = double.Parse(Console.ReadLine());
 
-            n1 = FactorialOfN1(n1);
-            n2 = FactorialOfN2(n2);
+            num1 = Factorial(num1);
+            num2 = Factorial(num2);
 
-            double result = (double)n1 / n2;
+            double result = num1 / num2;
             Console.WriteLine($"{result:F2}");
         }
 
-        static double FactorialOfN2(double n2)
+        static double Factorial(double num)
         {
             double factorial = 1;
-            for (int j = 1; j <= n2; j++)
+            for (int j = 1; j <= num; j++)
             {
                 factorial *= j;
-            }
-            return factorial;
-        }
-
-        static double FactorialOfN1(double n1)
-        {
-            double factorial = 1;
-            for (int i = 1; i <= n1; i++)
-            {
-                factorial *= i;
             }
             return factorial;
         }

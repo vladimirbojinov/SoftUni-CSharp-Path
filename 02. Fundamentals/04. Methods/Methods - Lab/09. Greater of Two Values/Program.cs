@@ -1,81 +1,75 @@
 ﻿namespace _09._Greater_of_Two_Values
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            string type = Console.ReadLine();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			string type = Console.ReadLine();
 
-            if (type == "int")
-            {
-                GetMaxInt();
-            }
-            else if (type == "char")
-            {
-                GetMaxChar();
-            }
-            else
-            {
-                GetMaxString();
-            }
-        }
+			if (type == "int")
+			{
+				int value1 = int.Parse(Console.ReadLine());
+				int value2 = int.Parse(Console.ReadLine());
 
-        static void GetMaxInt()
-        {
-            int n1 = int.Parse(Console.ReadLine());
-            int n2 = int.Parse(Console.ReadLine());
+				Console.WriteLine(GetMax(value1, value2));
+			}
+			else if (type == "char")
+			{
+				char value1 = char.Parse(Console.ReadLine());
+				char value2 = char.Parse(Console.ReadLine());
 
-            if (n1 > n2)
-            {
-                Console.WriteLine(n1);
-            }
-            else
-            {
-                Console.WriteLine(n2);
-            }
-        }
+				Console.WriteLine(GetMax(value1, value2));
+			}
+			else
+			{
+				string value1 = Console.ReadLine();
+				string value2 = Console.ReadLine();
 
-        static void GetMaxChar()
-        {
-            char n1 = char.Parse(Console.ReadLine());
-            char n2 = char.Parse(Console.ReadLine());
+				Console.WriteLine(GetMax(value1, value2));
+			}
+		}
 
-            if ((int)n1 > (int)n2)
-            {
-                Console.WriteLine(n1);
-            }
-            else
-            {
-                Console.WriteLine(n2);
-            }
-        }
+		public static int GetMax(int value1, int value2)
+		{
+			if (value1 > value2)
+			{
+				return value1;
+			}
 
-        static void GetMaxString()
-        {
-            string n1 = Console.ReadLine();
-            string n2 = Console.ReadLine();
+			return value2;
+		}
 
-            int n1ToInt = 0; int n2ToInt = 0;
+		public static char GetMax(char value1, char value2)
+		{
+			if (value1 > value2)
+			{
+				return value1;
+			}
 
-            for (int i = 0; i < n1.Length - 1; i++)
-            {
-                char letter = n1[i];
-                n1ToInt += letter;
-            }
-            for (int j = 0; j < n1.Length-1; j++)
-            {
-                char letter = n2[j];
-                n2ToInt += letter;
-            }
+			return value2;
+		}
 
-            if (n1ToInt > n2ToInt)
-            {
-                Console.WriteLine(n1);
-            }
-            else
-            {
-                Console.WriteLine(n2);
-            }
-        }
-    }
+		public static string GetMax(string value1, string value2)
+		{
+			int value1CharSum = 0;
+			int value2CharSum = 0;
+
+			for (int i = 0; i < value1.Length - 1; i++)
+			{
+				value1CharSum += value1[i];
+			}
+
+			for (int i = 0; i < value2.Length - 1; i++)
+			{
+				value2CharSum += value2[i];
+			}
+
+			if (value1CharSum > value2CharSum)
+			{
+				return value1;
+			}
+
+			return value2;
+		}
+	}
 }

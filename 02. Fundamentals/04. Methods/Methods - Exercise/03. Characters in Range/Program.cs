@@ -1,35 +1,35 @@
-﻿namespace _03._Characters_in_Range
+﻿using System;
+
+namespace _03._Characters_in_Range
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(string.Join(" ", CharRange()));
-        }
+			char char1 = char.Parse(Console.ReadLine());
+			char char2 = char.Parse(Console.ReadLine());
 
-        static string[] CharRange()
+			Console.WriteLine(string.Join(" ", CharRange(char1, char2)));
+		}
+
+        private static char[] CharRange(char char1, char char2)
         {
-            char char1 = char.Parse(Console.ReadLine());
-            char char2 = char.Parse(Console.ReadLine());
-
-            if ((int)char1 > (int)char2)
+            if (char1 > char2)
             {
-                char last = char1;
+                char temp = char1;
                 char1 = char2;
-                char2 = last;
+                char2 = temp;
             }
 
-            string charRow = " ";
-            int counter = 0;
+            string row = string.Empty;
 
-            for (int i = (int)char1 + 1; i < (int)char2; i++)
+            for (int i = char1 + 1; i < char2; i++)
             {
                 char singleChar = (char)i;
-                charRow += singleChar + " ";
-                counter++;
+                row += singleChar;
             }
 
-            string[] charArray = charRow.Split().ToArray();
+            char[] charArray = row.ToCharArray();
 
             return charArray;
         }

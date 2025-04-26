@@ -1,37 +1,54 @@
 ﻿namespace _10._Multiply_Evens_by_Odds
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int number = int.Parse(Console.ReadLine());
-            number = Math.Abs(number);
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			int num = Math.Abs(int.Parse(Console.ReadLine()));
 
-            string numberToString = number.ToString();
-            int sumOfEven = 0;
-            int oddOfEven = 0;
+			Console.WriteLine(GetMultipleOfEvenAndOdds(num));
+		}
 
-            for (int i = 0; i < numberToString.Length; i++)
-            {
-                int currentNum = int.Parse(numberToString[i].ToString());
+		public static int GetSumOfEvenDigits(int num)
+		{
+			int evenSum = 0;
 
-                if (currentNum % 2 == 0)
-                {
-                    sumOfEven += currentNum;
-                }
-                else
-                {
-                    oddOfEven += currentNum;
-                }
+			while (num > 0)
+			{
+				int digit = num % 10;
+				if (digit % 2 == 0)
+				{
+					evenSum += digit;
+				}
+				num /= 10;
+			}
 
-            }
+			return evenSum;
+		}
 
-            MultiplyEvenAndOdd(sumOfEven, oddOfEven);
-        }
+		public static int GetSumOfOddDigits(int num)
+		{
+			int oddSum = 0;
 
-        static void MultiplyEvenAndOdd(int n1, int n2)
-        {
-            Console.WriteLine(n1 * n2);
-        }
-    }
+			while (num > 0)
+			{
+				int digit = num % 10;
+				if (digit % 2 != 0)
+				{
+					oddSum += digit;
+				}
+				num /= 10;
+			}
+
+			return oddSum;
+		}
+
+		public static int GetMultipleOfEvenAndOdds(int num)
+		{
+			int evenSum = GetSumOfEvenDigits(num);
+			int oddSum = GetSumOfOddDigits(num);
+
+			return evenSum * oddSum;
+		}
+	}
 }

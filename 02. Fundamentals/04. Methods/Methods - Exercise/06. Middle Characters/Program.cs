@@ -5,18 +5,18 @@
         static void Main(string[] args)
         {
             string text = Console.ReadLine();
-            string[] textArray = new string[text.Length];
+            char[] textArray = new char[text.Length];
 
             for (int i = 0; i < text.Length; i++)
             {
-                string singleLetter = text[i].ToString();
+                char singleLetter = text[i];
                 textArray[i] = singleLetter;
             }
 
             MiddleCharacterFinder(textArray);
         }
 
-        static void MiddleCharacterFinder(string[] textArray)
+        static void MiddleCharacterFinder(char[] textArray)
         {
             int index = textArray.Length - 1;
             if (textArray.Length % 2 == 0)

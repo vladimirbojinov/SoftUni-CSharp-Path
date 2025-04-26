@@ -4,23 +4,22 @@
     {
         static void Main(string[] args)
         {
-            int n1 = int.Parse(Console.ReadLine());
-            int n2 = int.Parse(Console.ReadLine());
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
+			int num3 = int.Parse(Console.ReadLine());
 
-            int total = Sum2Digits(n1, n2);
-            Subtract(total);
+			int sum = SumTwoDigits(num1, num2);
+            Subtract(sum, num3);
         }
 
-        static void Subtract(int total)
+        static void Subtract(int total, int num3)
         {
-            int n3 = int.Parse(Console.ReadLine());
-
-            Console.WriteLine(total -= n3);
+            Console.WriteLine(total -= num3);
         }
 
-        static int Sum2Digits(int n1, int n2)
+        static int SumTwoDigits(int num1, int num2)
         {
-            int sum = n1 + n2;
+            int sum = num1 + num2;
 
             return sum;
         }

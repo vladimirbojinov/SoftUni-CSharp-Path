@@ -14,10 +14,10 @@
         {
             switch (product)
             {
-                case "coffee": Console.WriteLine($"{quantity * 1.50:f2}"); break;
-                case "water": Console.WriteLine($"{quantity * 1.00:f2}"); break;
-                case "coke": Console.WriteLine($"{quantity * 1.40:f2}"); break;
-                case "snacks": Console.WriteLine($"{quantity * 2.00:f2}"); break;
+                case "coffee": Console.WriteLine($"{quantity * 1.50:F2}"); break;
+                case "water": Console.WriteLine($"{quantity * 1.00:F2}"); break;
+                case "coke": Console.WriteLine($"{quantity * 1.40:F2}"); break;
+                case "snacks": Console.WriteLine($"{quantity * 2.00:F2}"); break;
             }
         }
     }

@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int num = int.Parse(Console.ReadLine());
 
-            IsNumberPositiveOr0(n);
+            IsNumberStatus(num);
         }
 
-        static void IsNumberPositiveOr0(int number)
+        static void IsNumberStatus(int number)
         {
             if (number > 0)
             {

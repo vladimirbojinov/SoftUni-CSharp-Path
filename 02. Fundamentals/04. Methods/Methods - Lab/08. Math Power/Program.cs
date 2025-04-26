@@ -4,15 +4,15 @@
     {
         static void Main(string[] args)
         {
-            double n = double.Parse(Console.ReadLine());
+            double num = double.Parse(Console.ReadLine());
             int power = int.Parse(Console.ReadLine());
 
-            NumberToPower(n, power);
+            NumberToPower(num, power);
         }
 
-        static void NumberToPower(double n, int power)
+        static void NumberToPower(double num, int power)
         {
-            Console.WriteLine(Math.Pow(n, power));
+            Console.WriteLine(Math.Pow(num, power));
         }
     }
 }

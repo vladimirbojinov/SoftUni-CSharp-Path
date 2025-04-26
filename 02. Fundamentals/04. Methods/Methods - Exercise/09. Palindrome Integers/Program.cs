@@ -6,11 +6,11 @@ namespace _09._Palindrome_Integers
     {
         static void Main(string[] args)
         {
-            string command = Console.ReadLine();
-            while (command != "END")
+            string input = Console.ReadLine();
+            while (input != "END")
             {
-                Console.WriteLine(IsNumberPalindrome(command));
-                command = Console.ReadLine();
+                Console.WriteLine(IsNumberPalindrome(input));
+                input = Console.ReadLine();
             }
         }
 
@@ -23,21 +23,21 @@ namespace _09._Palindrome_Integers
                 numberArray[i] = singleDigit;
             }
 
-            string firstHalf = "";
+            string leftHalf = string.Empty;
             for (int i = 0; i <= number.Length / 2; i++)
             {
-                firstHalf += numberArray[i];
+                leftHalf += numberArray[i];
             }
 
             Array.Reverse(numberArray);
 
-            string secHalf = "";
+            string rightHalf = string.Empty;
             for (int i = 0; i <= number.Length / 2; i++)
             {
-                secHalf += numberArray[i];
+                rightHalf += numberArray[i];
             }
 
-            return firstHalf == secHalf;
+            return leftHalf == rightHalf;
         }
     }
 }
