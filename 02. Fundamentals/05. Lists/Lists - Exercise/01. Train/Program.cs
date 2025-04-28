@@ -13,26 +13,25 @@
             string command;
             while ((command = Console.ReadLine()) != "end")
             {
-                string[] argument = command.Split();
-                if (argument[0] == "Add")
+                string[] arguments = command.Split();
+                if (arguments[0] == "Add")
                 {
-                    wagons.Add(int.Parse(argument[1]));
+                    wagons.Add(int.Parse(arguments[1]));
                 }
                 else
                 {
-                    int addedPassengers = int.Parse(argument[0]);
+                    int incomingPassengers = int.Parse(arguments[0]);
                     int currentWagon = 0;
 
                     for (int i = 0; i < wagons.Count; i++)
                     {
-                        if (addedPassengers + wagons[currentWagon] <= maxCapacity)
+                        if (incomingPassengers + wagons[currentWagon] <= maxCapacity)
                         {
-                            wagons[currentWagon] += addedPassengers;
+                            wagons[currentWagon] += incomingPassengers;
                             break;
                         }
 
                         currentWagon++;
-
                     }
                 }
             }

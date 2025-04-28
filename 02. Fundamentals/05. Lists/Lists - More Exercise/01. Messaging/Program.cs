@@ -1,45 +1,49 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace _01._Messaging
+﻿namespace _01._Messaging
 {
-    internal class Program
+	internal class Program
     {
         static void Main(string[] args)
         {
-            List<string> numbers = Console.ReadLine()
-                .Split()
-                .ToList();
-            string text = Console.ReadLine();
-            List<string> textToList = new List<string>();
+			List<int> indexes = GetIndexes();
+			string text = Console.ReadLine();
+			
+			for (int i = 0; i < indexes.Count; i++)
+			{
+				int currentIndex = indexes[i];
+				if (currentIndex > text.Length)
+				{
+					currentIndex -= text.Length;
+				}
 
-            for (int i = 0; i < text.Length; i++)
-            {
-                textToList.Add(text[i].ToString());
-            }
-
-
-            for (int i = 0; i < numbers.Count; i++)
-            {
-                int sum = 0;
-                string stringedNum = numbers[i];
-                for (int j = 0; j < stringedNum.Length; j++)
-                {
-                    int n = int.Parse(stringedNum[j].ToString());
-                    sum += n;
-                }
-
-                if (textToList.Count - 1 < sum)
-                {
-                    sum -= textToList.Count;
-                    Console.Write(textToList[sum]);
-                    textToList.RemoveAt(sum);
-                }
-                else
-                {
-                    Console.Write(textToList[sum]);
-                    textToList.RemoveAt(sum);
-                }
-            }
+				Console.Write(text[currentIndex]);
+				text = text.Remove(currentIndex, 1);
+			}
         }
-    }
+
+		private static List<int> GetIndexes()
+		{
+			List<int> indexes = new List<int>();
+
+			int[] input = Console.ReadLine()
+				.Split()
+				.Select(int.Parse)
+				.ToArray();
+
+			for (int i = 0; i < input.Length; i++)
+			{
+				int number = input[i];
+				int sum = 0;
+
+				while (number != 0)
+				{
+					sum += number % 10;
+					number /= 10;
+				}
+
+				indexes.Add(sum);
+			}
+
+			return indexes;
+		}
+	}
 }

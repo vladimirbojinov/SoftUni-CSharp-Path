@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            List<int> numbersList = Console.ReadLine()
+            List<int> numbers = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToList();
@@ -15,14 +15,14 @@
                 string[] argument = command.Split();
                 switch (argument[0])
                 {
-                    case "Add": numbersList = AddCommand(numbersList, int.Parse(argument[1])); break;
-                    case "Remove": numbersList = RemoveCommand(numbersList, int.Parse(argument[1])); break;
-                    case "RemoveAt": numbersList = RemoveIndexCommand(numbersList, int.Parse(argument[1])); break;
-                    case "Insert": numbersList = InsertCommand(numbersList, int.Parse(argument[1]), int.Parse(argument[2])); break;
+                    case "Add": numbers = AddCommand(numbers, int.Parse(argument[1])); break;
+                    case "Remove": numbers = RemoveCommand(numbers, int.Parse(argument[1])); break;
+                    case "RemoveAt": numbers = RemoveIndexCommand(numbers, int.Parse(argument[1])); break;
+                    case "Insert": numbers = InsertCommand(numbers, int.Parse(argument[1]), int.Parse(argument[2])); break;
                 }
             }
 
-            Console.WriteLine(string.Join(" ", numbersList));
+            Console.WriteLine(string.Join(" ", numbers));
         }
 
         static List<int> AddCommand(List<int> numbersList, int number)

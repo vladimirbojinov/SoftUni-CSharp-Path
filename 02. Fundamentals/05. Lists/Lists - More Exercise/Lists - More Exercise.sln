@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Car Race", "02. Car Rac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Take_Skip Rope", "03. Take_Skip Rope\03. Take_Skip Rope.csproj", "{9022C867-8876-41B1-921D-93EE5B63CD34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Mixed up Lists", "04. Mixed up Lists\04. Mixed up Lists.csproj", "{7C4EB388-CBA6-49CD-B9EE-99302DA67ECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Drum Set", "05. Drum Set\05. Drum Set.csproj", "{96151379-B192-4B66-A317-896B4685BB53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{9022C867-8876-41B1-921D-93EE5B63CD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9022C867-8876-41B1-921D-93EE5B63CD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9022C867-8876-41B1-921D-93EE5B63CD34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4EB388-CBA6-49CD-B9EE-99302DA67ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4EB388-CBA6-49CD-B9EE-99302DA67ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4EB388-CBA6-49CD-B9EE-99302DA67ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4EB388-CBA6-49CD-B9EE-99302DA67ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96151379-B192-4B66-A317-896B4685BB53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96151379-B192-4B66-A317-896B4685BB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96151379-B192-4B66-A317-896B4685BB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96151379-B192-4B66-A317-896B4685BB53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            string[] stringsArrays = Console.ReadLine()
+            string[] numberChunks = Console.ReadLine()
                 .Split('|', StringSplitOptions.RemoveEmptyEntries);
 
-            PrintArray(stringsArrays);
+            PrintArray(numberChunks);
         }
 
         static void PrintArray(string[] stringsArray)

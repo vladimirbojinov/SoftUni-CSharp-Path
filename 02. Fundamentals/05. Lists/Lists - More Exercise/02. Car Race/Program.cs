@@ -12,14 +12,14 @@
             List<int> leftRacer = new List<int>();
             List<int> rightRacer = new List<int>();
 
-            for (int i = 0; i < raceTrack.Count / 2; i++)
+			for (int i = 0; i < raceTrack.Count / 2; i++)
             {
                 leftRacer.Add(raceTrack[i]);
             }
 
-            for (int j = raceTrack.Count - 1; j > raceTrack.Count / 2; j--)
+            for (int i = raceTrack.Count - 1; i > raceTrack.Count / 2; i--)
             {
-                rightRacer.Add(raceTrack[j]);
+                rightRacer.Add(raceTrack[i]);
             }
 
             RaceWinner(leftRacer, rightRacer);
@@ -42,15 +42,15 @@
                 }
             }
 
-            for (int j = 0; j < rightRacer.Count; j++)
+            for (int i = 0; i < rightRacer.Count; i++)
             {
-                if (rightRacer[j] == 0)
+                if (rightRacer[i] == 0)
                 {
                     rightRacerTime *= 0.8m;
                 }
                 else
                 {
-                    rightRacerTime += rightRacer[j];
+                    rightRacerTime += rightRacer[i];
                 }
             }
 

@@ -1,57 +1,57 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace _06._Cards_Game
+﻿namespace _06._Cards_Game
 {
-    /*
-20 30 40 50
-10 20 30 40
-     */
-    internal class Program
+	internal class Program
     {
         static void Main(string[] args)
         {
-            List<int> p1Deck = Console.ReadLine().Split().Select(int.Parse).ToList();
+            List<int> player1Deck = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToList();
 
-            List<int> p2Deck = Console.ReadLine().Split().Select(int.Parse).ToList();
+            List<int> player2Deck = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToList();
 
-            while (p1Deck.Count > 0 && p2Deck.Count > 0)
+            while (player1Deck.Count > 0 && player2Deck.Count > 0)
             {
-                int p1Card = p1Deck[0];
-                int p2Card = p2Deck[0];
+                int player1Card = player1Deck[0];
+                int player2Card = player2Deck[0];
 
-                if (p1Card == p2Card)
+                if (player1Card == player2Card)
                 {
-                    p1Deck.RemoveAt(0);
-                    p2Deck.RemoveAt(0);
+                    player1Deck.RemoveAt(0);
+                    player2Deck.RemoveAt(0);
                 }
-                else if (p1Card > p2Card)
+                else if (player1Card > player2Card)
                 {
-                    int firstCard = p1Deck[0];
+                    int firstCard = player1Deck[0];
 
-                    p1Deck.RemoveAt(0);
-                    p1Deck.Add(firstCard);
-                    p1Deck.Add(p2Deck[0]);
-                    p2Deck.RemoveAt(0);
+                    player1Deck.RemoveAt(0);
+                    player1Deck.Add(firstCard);
+                    player1Deck.Add(player2Deck[0]);
+                    player2Deck.RemoveAt(0);
                 }
                 else
                 {
-                    int firstCard = p2Deck[0];
+                    int firstCard = player2Deck[0];
 
-                    p2Deck.RemoveAt(0);
-                    p2Deck.Add(firstCard);
-                    p2Deck.Add(p1Deck[0]);
-                    p1Deck.RemoveAt(0);
+                    player2Deck.RemoveAt(0);
+                    player2Deck.Add(firstCard);
+                    player2Deck.Add(player1Deck[0]);
+                    player1Deck.RemoveAt(0);
                 }
             }
 
-            if (p1Deck.Count > 0)
+            if (player1Deck.Count > 0)
             {
-                int sum = WiningDeckSum(p1Deck);
+                int sum = WiningDeckSum(player1Deck);
                 Console.WriteLine($"First player wins! Sum: {sum}");
             }
             else
             {
-                int sum = WiningDeckSum(p2Deck);
+                int sum = WiningDeckSum(player2Deck);
                 Console.WriteLine($"Second player wins! Sum: {sum}");
             }
         }

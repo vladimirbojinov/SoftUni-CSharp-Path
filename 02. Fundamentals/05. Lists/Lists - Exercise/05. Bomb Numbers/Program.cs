@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            List<int> numberList = Console.ReadLine()
+            List<int> numbers = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToList();
@@ -13,9 +13,9 @@
                 .Select(int.Parse)
                 .ToList();
 
-            numberList = BombDetonation(numberList, bombAndBombRange);
+            numbers = BombDetonation(numbers, bombAndBombRange);
 
-            SumOfList(numberList);
+            SumOfList(numbers);
         }
 
 
@@ -29,9 +29,9 @@
                 int indexOfBomb = numberList.IndexOf(bomb);
 
                 int leftExplosion = Math.Max(0, indexOfBomb - bombRange);
-                int righExplosion = Math.Min(numberList.Count - 1, indexOfBomb + bombRange);
+                int rightExplosion = Math.Min(numberList.Count - 1, indexOfBomb + bombRange);
 
-                int range = righExplosion - leftExplosion + 1;
+                int range = rightExplosion - leftExplosion + 1;
 
                 numberList.RemoveRange(leftExplosion, range);
             }

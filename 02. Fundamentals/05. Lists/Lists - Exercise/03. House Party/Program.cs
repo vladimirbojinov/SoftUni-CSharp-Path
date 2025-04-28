@@ -4,13 +4,12 @@
     {
         static void Main(string[] args)
         {
-            int numberOfCommands = int.Parse(Console.ReadLine());
+            int commandCount = int.Parse(Console.ReadLine());
             List<string> partyList = new List<string>();
 
-            for (int i = 0; i < numberOfCommands; i++)
+            for (int i = 0; i < commandCount; i++)
             {
-                string[] arguments = Console.ReadLine()
-                    .Split();
+                string[] arguments = Console.ReadLine().Split();
 
                 if (arguments[2] == "not")
                 {
@@ -22,10 +21,7 @@
                 }
             }
 
-            foreach (string name in partyList)
-            {
-                Console.WriteLine(name);
-            }
+			Console.WriteLine(string.Join("\n", partyList));
         }
 
         static List<string> IsComingCommand(List<string> partyList, string name)

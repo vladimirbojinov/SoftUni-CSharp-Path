@@ -2,36 +2,38 @@
 
 namespace _03._Merging_Lists
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            List<int> number1 = Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
-                .ToList();
-            List<int> number2 = Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
-                .ToList(); ;
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<int> numbers1 = Console.ReadLine()
+				.Split()
+				.Select(int.Parse)
+				.ToList();
 
-            List<int> result = new List<int>();
+			List<int> numbers2 = Console.ReadLine()
+				.Split()
+				.Select(int.Parse)
+				.ToList();
 
-            int maxLenght = Math.Max(number1.Count, number2.Count);
+			List<int> result = new List<int>();
 
-            for (int i = 0; i < maxLenght; i++)
-            {
-                if (i < number1.Count)
-                {
-                    result.Add(number1[i]);
-                }
-                if (i < number2.Count)
-                {
-                    result.Add(number2[i]);
-                }
-            }
+			int maxLength = Math.Max(numbers1.Count, numbers2.Count);
 
-            Console.WriteLine(string.Join(" ", result));
-        }
-    }
+			for (int i = 0; i < maxLength; i++)
+			{
+				if (i < numbers1.Count)
+				{
+					result.Add(numbers1[i]);
+				}
+
+				if (i < numbers2.Count)
+				{
+					result.Add(numbers2[i]);
+				}
+			}
+
+			Console.WriteLine(string.Join(" ", result));
+		}
+	}
 }

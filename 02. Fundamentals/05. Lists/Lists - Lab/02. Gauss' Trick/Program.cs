@@ -9,8 +9,8 @@
                 .Select(int.Parse)
                 .ToList();
 
-            int lenght = numbers.Count / 2;
-            for (int i = 0; i < lenght; i++)
+            int length = numbers.Count / 2;
+            for (int i = 0; i < length; i++)
             {
                 numbers[i] += numbers[numbers.Count - 1];
                 numbers.RemoveAt(numbers.Count - 1);

@@ -1,12 +1,10 @@
-﻿using System.Data;
-
-namespace _07._List_Manipulation_Advanced
+﻿namespace _07._List_Manipulation_Advanced
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            List<int> numberList = Console.ReadLine()
+            List<int> numbers = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToList();
@@ -19,25 +17,29 @@ namespace _07._List_Manipulation_Advanced
                 string[] arguments = command.Split();
                 switch (arguments[0])
                 {
-                    case "Contains": ContainsCommand(numberList, int.Parse(arguments[1])); break;
-                    case "PrintEven": PrintEvenCommand(numberList); break;
-                    case "PrintOdd": PrintOddCommand(numberList); break;
-                    case "GetSum": GetSumCommand(numberList); break;
-                    case "Filter": FilterCommand(numberList, arguments[1].ToString(), int.Parse(arguments[2])); break;
-                    case "Add": numberList = AddCommand(numberList, int.Parse(arguments[1]));
+                    case "Contains": ContainsCommand(numbers, int.Parse(arguments[1])); break;
+                    case "PrintEven": PrintEvenCommand(numbers); break;
+                    case "PrintOdd": PrintOddCommand(numbers); break;
+                    case "GetSum": GetSumCommand(numbers); break;
+                    case "Filter": FilterCommand(numbers, arguments[1].ToString(), int.Parse(arguments[2])); break;
+                    case "Add": 
+                        numbers = AddCommand(numbers, int.Parse(arguments[1]));
                         isListChanged = true; break;
-                    case "Remove": numberList = RemoveCommand(numberList, int.Parse(arguments[1]));
+                    case "Remove": 
+                        numbers = RemoveCommand(numbers, int.Parse(arguments[1]));
                         isListChanged = true; break;
-                    case "RemoveAt": numberList = RemoveIndexCommand(numberList, int.Parse(arguments[1]));
+                    case "RemoveAt": 
+                        numbers = RemoveIndexCommand(numbers, int.Parse(arguments[1]));
                         isListChanged = true; break;
-                    case "Insert": numberList = InsertCommand(numberList, int.Parse(arguments[1]), int.Parse(arguments[2]));
+                    case "Insert": 
+                        numbers = InsertCommand(numbers, int.Parse(arguments[1]), int.Parse(arguments[2]));
                         isListChanged = true; break;
                 }
             }
 
             if (isListChanged)
             {
-                Console.WriteLine(string.Join(" ", numberList));
+                Console.WriteLine(string.Join(" ", numbers));
             }
         }
 
@@ -93,53 +95,48 @@ namespace _07._List_Manipulation_Advanced
 
         static void FilterCommand(List<int> numberList, string condition, int number)
         {
-            switch (condition)
+            if (condition == "<")
             {
-                case "<":
-                    for (int i = 0; i < numberList.Count; i++)
-                    {
-                        if (numberList[i] < number)
-                        {
-                            Console.Write(numberList[i] + " ");
-                        }
-                    }
+				for (int i = 0; i < numberList.Count; i++)
+				{
+					if (numberList[i] < number)
+					{
+						Console.Write(numberList[i] + " ");
+					}
+				}
+			}
+            else if (condition == ">")
+            {
+				for (int i = 0; i < numberList.Count; i++)
+				{
+					if (numberList[i] > number)
+					{
+						Console.Write(numberList[i] + " ");
+					}
+				}
+			}
+            else if (condition == ">=")
+            {
+				for (int i = 0; i < numberList.Count; i++)
+				{
+					if (numberList[i] >= number)
+					{
+						Console.Write(numberList[i] + " ");
+					}
+				}
+			}
+            else if (condition == "<=")
+            {
+				for (int i = 0; i < numberList.Count; i++)
+				{
+					if (numberList[i] <= number)
+					{
+						Console.Write(numberList[i] + " ");
+					}
+				}
+			}
 
-                    Console.WriteLine();
-                    break;
-                case ">":
-                    for (int i = 0; i < numberList.Count; i++)
-                    {
-                        if (numberList[i] > number)
-                        {
-                            Console.Write(numberList[i] + " ");
-                        }
-                    }
-
-                    Console.WriteLine();
-                    break;
-                case ">=":
-                    for (int i = 0; i < numberList.Count; i++)
-                    {
-                        if (numberList[i] >= number)
-                        {
-                            Console.Write(numberList[i] + " ");
-                        }
-                    }
-
-                    Console.WriteLine();
-                    break;
-                case "<=":
-                    for (int i = 0; i < numberList.Count; i++)
-                    {
-                        if (numberList[i] <= number)
-                        {
-                            Console.Write(numberList[i] + " ");
-                        }
-                    }
-
-                    Console.WriteLine();
-                    break;
-            }
+			Console.WriteLine();
         }
 
         static List<int> AddCommand(List<int> numbersList, int number)

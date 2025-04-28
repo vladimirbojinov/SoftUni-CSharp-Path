@@ -4,20 +4,19 @@
     {
         static void Main(string[] args)
         {
-            int numberOfProducts = int.Parse(Console.ReadLine());
+            int productCount = int.Parse(Console.ReadLine());
             List<string> products = new List<string>();
 
-            for (int i = 0; i < numberOfProducts; i++)
+            for (int i = 0; i < productCount; i++)
             {
                 products.Add(Console.ReadLine());
             }
 
             products.Sort();
 
-            for (int j = 1; j <= numberOfProducts; j++)
+            for (int j = 1; j <= productCount; j++)
             {
-                Console.Write($"{j}.");
-                Console.Write(products[j - 1]);
+                Console.Write($"{j}.{products[j - 1]}");
                 Console.WriteLine();
             }
         }

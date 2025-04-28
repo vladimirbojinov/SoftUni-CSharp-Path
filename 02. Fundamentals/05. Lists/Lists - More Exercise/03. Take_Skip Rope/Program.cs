@@ -1,65 +1,63 @@
-﻿using System.Collections.Generic;
-
-namespace _03._Take_Skip_Rope
+﻿namespace _03._Take_Skip_Rope
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            List<string> text = new List<string>();
-            List<int> numbers = new List<int>();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<int> numbers = new List<int>();
+			List<char> letters = new List<char>();
 
-            string starterText = Console.ReadLine();
-            for (int i = 0; i < starterText.Length; i++)
-            {
-                int bin;
-                string currentLetter = starterText[i].ToString();
-                bool isNumber = int.TryParse(currentLetter, out bin);
-                if (isNumber)
-                {
-                    numbers.Add(int.Parse(currentLetter));
-                }
-                else
-                {
-                    text.Add(currentLetter);
-                }
-            }
+			string text = Console.ReadLine();
+			for (int i = 0; i < text.Length; i++)
+			{
+				if (char.IsDigit(text[i]))
+				{
+					int number = int.Parse(text[i].ToString());
+					numbers.Add(number);
+				}
+				else
+				{
+					letters.Add(text[i]);
+				}
+			}
 
-            List<int> takeList = new List<int>();
-            List<int> skipList = new List<int>();
+			List<int> take = new List<int>();
+			List<int> skip = new List<int>();
 
-            for (int j = 0; j < numbers.Count; j++)
-            {
-                if (j % 2 == 0)
-                {
-                    takeList.Add(numbers[j]);
-                }
-                else
-                {
-                    skipList.Add(numbers[j]);
-                }
-            }
+			for (int i = 0; i < numbers.Count; i++)
+			{
+				if (i % 2 == 0)
+				{
+					take.Add(numbers[i]);
+				}
+				else
+				{
+					skip.Add(numbers[i]);
+				}
+			}
 
-            int currentIndex = 0;
-            int takeListTurn = 0;
-            int skipListTurn = 0;
+			Decipher(letters, take, skip);
+		}
 
-            while (takeListTurn != takeList.Count)
-            {
+		private static void Decipher(List<char> letters, List<int> take, List<int> skip)
+		{
+			int indexPos = 0;
+			for (int i = 0; i < take.Count; i++)
+			{
+				int counter = 0;
+				for (int j = indexPos; j < letters.Count; j++)
+				{
+					if (counter == take[i])
+					{
+						break;
+					}
 
-                int starterIndex = currentIndex;
-                for (int i = 0; i < takeList[takeListTurn]; i++)
-                {
-                    Console.Write(text[starterIndex]);
-                    starterIndex++;
-                }
+					Console.Write(letters[j]);
+					counter++;
+				}
 
-                currentIndex += takeList[takeListTurn];
-                currentIndex += (skipList[skipListTurn]);
-
-                takeListTurn++;
-                skipListTurn++;
-            }
-        }
-    }
+				indexPos += skip[i] + counter;
+			}
+		}
+	}
 }
