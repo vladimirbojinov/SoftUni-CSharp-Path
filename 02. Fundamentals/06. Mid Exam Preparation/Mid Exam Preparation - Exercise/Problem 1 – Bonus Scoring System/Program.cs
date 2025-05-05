@@ -4,18 +4,18 @@
     {
         static void Main(string[] args)
         {
-            int numberOfStudents = int.Parse(Console.ReadLine());
-            int numberOfLecture = int.Parse(Console.ReadLine());
+            int studentsCount = int.Parse(Console.ReadLine());
+            int lecturesCount = int.Parse(Console.ReadLine());
             int bonus = int.Parse(Console.ReadLine());
 
             double maxBonus = 0;
             int bestAttendance = 0;
 
-            for (int i = 0; i < numberOfStudents; i++)
+            for (int i = 0; i < studentsCount; i++)
             {
                 int studentAttendance = int.Parse(Console.ReadLine());
 
-                double totalBonus = Math.Ceiling((double)studentAttendance / numberOfLecture * (5 + bonus));
+                double totalBonus = Math.Ceiling((double)studentAttendance / lecturesCount * (5 + bonus));
 
                 if (maxBonus < totalBonus)
                 {

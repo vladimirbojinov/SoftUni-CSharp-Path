@@ -4,34 +4,36 @@
     {
         static void Main(string[] args)
         {
-            int songsNumber = int.Parse(Console.ReadLine());
-            List<Songs> songsList = new List<Songs>();
-            for (int i = 0; i < songsNumber; i++)
+            List<Song> songs = new List<Song>();
+            
+            int songCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < songCount; i++)
             {
-                string[] songs = Console.ReadLine()
+                string[] input = Console.ReadLine()
                     .Split("_")
                     .ToArray();
-                string type = songs[0];
-                string name = songs[1];
-                string time =songs[2];
 
-                Songs song = new Songs(type, name, time);
-                songsList.Add(song);
+				string type = input[0];
+				string name = input[1];
+				string duration = input[2];
+
+				Song song = new Song(type, name, duration);
+				songs.Add(song);
             }
 
-            string command = Console.ReadLine();
-            if (command == "all")
+            string songTypeFilter = Console.ReadLine();
+            if (songTypeFilter == "all")
             {
-                foreach (Songs name in songsList)
+                foreach (Song name in songs)
                 {
                     Console.WriteLine(name.Name);
                 }
             }
             else
             {
-                foreach (Songs name in songsList)
+                foreach (Song name in songs)
                 {
-                    if (name.Type == command)
+                    if (name.Type == songTypeFilter)
                     {
                         Console.WriteLine(name.Name);
                     }
@@ -40,9 +42,9 @@
         }
     }
 
-    public class Songs
+    public class Song
     {
-        public Songs(string type, string name, string time)
+        public Song(string type, string name, string time)
         {
             Type = type;
             Name = name;
@@ -52,6 +54,5 @@
         public string Type { get; set; }
         public string Name { get; set; }
         public string Time { get; set; }
-
     }
 }

@@ -6,8 +6,9 @@
         {
             double totalWithoutTax = 0;
             double tax = 0;
+
             string command;
-            while ((command = Console.ReadLine()) != "special" && (command) != "regular")
+            while ((command = Console.ReadLine()) != "special" && command != "regular")
             {
                 double price = double.Parse(command);
 
@@ -18,7 +19,7 @@
                 }
 
                 totalWithoutTax += price;
-                tax = (totalWithoutTax * 0.20);
+                tax = totalWithoutTax * 0.20;
             }
 
             double totalPriceWithTax = totalWithoutTax + tax;

@@ -5,20 +5,20 @@
         static void Main(string[] args)
         {
             int membersCount = int.Parse(Console.ReadLine());
-            Family familyMember = new Family();
+            Family family = new Family();
 
             for (int i = 0; i < membersCount; i++)
             {
-                string[] memberData = Console.ReadLine().Split();
-                string name = memberData[0];
-                int age = int.Parse(memberData[1]);
+                string[] personData = Console.ReadLine().Split();
+                string name = personData[0];
+                int age = int.Parse(personData[1]);
 
-                Person member = new Person(name, age);
-                familyMember.AddFamily(member);
+                Person person = new Person(name, age);
+                family.AddMember(person);
             }
 
-            string oldestAge = familyMember.OldestAge();
-            Console.WriteLine(oldestAge);
+            Person oldestMember = family.GetOldestMember();
+            Console.WriteLine(oldestMember);
         }
     }
 
@@ -32,7 +32,12 @@
 
         public string Name { get; set; }
         public int Age { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return $"{Name} {Age}";
+		}
+	}
 
     class Family
     {
@@ -43,27 +48,26 @@
 
         public List<Person> FamilyList { get; set; }
 
-        public void AddFamily(Person familyMember)
+        public void AddMember(Person familyMember)
         {
             FamilyList.Add(familyMember);
         }
 
-        public string OldestAge()
+        public Person GetOldestMember()
         {
-            int maxAge = int.MinValue;
-            string oldestMember = string.Empty;
+            Person oldestMember = null;
+            int oldestAge = 0;
 
-            List<Person> list = FamilyList;
-            foreach (Person person in list)
+            foreach (Person person in FamilyList)
             {
-                if (person.Age > maxAge)
+                if (person.Age > oldestAge)
                 {
-                    oldestMember = person.Name;
-                    maxAge = person.Age;
+                    oldestMember = person;
+                    oldestAge = person.Age;
                 }
             }
 
-            return $"{oldestMember} {maxAge}";
+            return oldestMember;
         }
     }
 }

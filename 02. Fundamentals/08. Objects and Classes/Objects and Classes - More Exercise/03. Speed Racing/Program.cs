@@ -4,39 +4,41 @@
     {
         static void Main(string[] args)
         {
-            List<Car> carList = new List<Car>();
+            List<Car> cars = new List<Car>();
 
-            int carAmount = int.Parse(Console.ReadLine());
-            for (int i = 0; i < carAmount; i++)
+            int carCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < carCount; i++)
             {
                 string[] carData = Console.ReadLine().Split();
-                string carModel = carData[0];
+                string model = carData[0];
                 double fuelAmount = double.Parse(carData[1]);
                 double fuelConsumptionPerKm = double.Parse(carData[2]);
-                Car car = new Car(carModel, fuelAmount, fuelConsumptionPerKm);
-                carList.Add(car);
+
+                Car car = new Car(model, fuelAmount, fuelConsumptionPerKm);
+                cars.Add(car);
             }
 
             string command;
             while ((command = Console.ReadLine()) != "End")
             {
                 string[] arguments = command.Split();
-                Car chosenCar = carList.FirstOrDefault(x => x.Model == arguments[1]);
+				string carFilter = arguments[1];
+				Car car = cars.FirstOrDefault(c => c.Model == carFilter);
 
                 double distanceToTravel = double.Parse(arguments[2]);
-                double fuelConsumed = chosenCar.FuelConsumptionPerKm * distanceToTravel;
-                if (fuelConsumed > chosenCar.FuelAmount)
+                double fuelConsumed = car.FuelConsumptionPerKm * distanceToTravel;
+                if (fuelConsumed > car.FuelAmount)
                 {
                     Console.WriteLine("Insufficient fuel for the drive");
                 }
                 else
                 {
-                    chosenCar.FuelAmount -= fuelConsumed;
-                    chosenCar.TraveledDistance += distanceToTravel;
+                    car.FuelAmount -= fuelConsumed;
+                    car.TraveledDistance += distanceToTravel;
                 }
             }
 
-            Console.WriteLine(string.Join("\n", carList));
+            Console.WriteLine(string.Join("\n", cars));
         }
     }
 

@@ -4,24 +4,26 @@
     {
         static void Main(string[] args)
         {
-            List<Students> studentsList = new List<Students>();
+            List<Student> students = new List<Student>();
+
             string command;
             while ((command = Console.ReadLine()) != "end")
             {
-                string[] studentId = command.Split();
-                string name = studentId[0];
-                string lastName = studentId[1];
-                int age = int.Parse(studentId[2]);
-                string homeTown = studentId[3];
+                string[] input = command.Split();
 
-                Students student = new Students(name, lastName, age, homeTown);
-                studentsList.Add(student);
+                string firstName = input[0];
+                string lastName = input[1];
+                int age = int.Parse(input[2]);
+                string homeTown = input[3];
+
+                Student student = new Student(firstName, lastName, age, homeTown);
+                students.Add(student);
             }
 
-            string searchedHomeTown = Console.ReadLine();
-            foreach (Students student in studentsList)
+            string homeTownFilter = Console.ReadLine();
+            foreach (Student student in students)
             {
-                if (student.HomeTown == searchedHomeTown)
+                if (student.HomeTown == homeTownFilter)
                 {
                     Console.WriteLine($"{student.FirstName} {student.LastName} is {student.Age} years old.");
                 }
@@ -29,9 +31,9 @@
         }
     }
 
-    public class Students
+    public class Student
     {
-        public Students(string firstName, string lastName, int age, string homeTown)
+        public Student(string firstName, string lastName, int age, string homeTown)
         {
             FirstName = firstName;
             LastName = lastName;

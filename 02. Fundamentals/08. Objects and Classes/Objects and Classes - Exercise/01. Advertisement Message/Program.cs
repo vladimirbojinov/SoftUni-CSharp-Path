@@ -13,6 +13,7 @@
                 "Exceptional product.",
                 "I can't live without this product."
             };
+
             List<string> events = new List<string>()
             {
                 "Now I feel good.",
@@ -22,6 +23,7 @@
                 "Try it yourself, I am very satisfied.",
                 "I feel great!"
             };
+
             List<string> authors = new List<string>()
             {
                 "Diana",
@@ -33,6 +35,7 @@
                 "Annie",
                 "Eva"
             };
+
             List<string> cities = new List<string>()
             {
                 "Burgas", 
@@ -46,10 +49,10 @@
             int loops = int.Parse(Console.ReadLine());
             for (int i = 0; i < loops; i++)
             {
-                int randomPhasesAndEvent = rnd.Next(0, events.Count);
-                int randomPeople = rnd.Next(0, authors.Count);
-                int randomCities = rnd.Next(0, cities.Count);
-                Console.WriteLine($"{phrases[randomPhasesAndEvent]} {events[randomPhasesAndEvent]} {authors[randomPeople]} - {cities[randomCities]}");
+                int randomPhaseAndEvent = rnd.Next(0, events.Count);
+                int randomPerson = rnd.Next(0, authors.Count);
+                int randomCity = rnd.Next(0, cities.Count);
+                Console.WriteLine($"{phrases[randomPhaseAndEvent]} {events[randomPhaseAndEvent]} {authors[randomPerson]} - {cities[randomCity]}");
             }
         }
     }

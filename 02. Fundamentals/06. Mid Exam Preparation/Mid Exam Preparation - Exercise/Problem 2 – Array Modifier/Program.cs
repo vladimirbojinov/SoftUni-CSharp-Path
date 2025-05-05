@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            List<int> numbers = Console.ReadLine()
+            int[] numbers = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
-                .ToList();
+                .ToArray();
 
             string command;
             while ((command = Console.ReadLine()) != "end")
@@ -24,7 +24,7 @@
             Console.WriteLine(string.Join(", ", numbers));
         }
 
-        static List<int> SwapCommand(List<int> numbers, int index1, int index2)
+        static int[] SwapCommand(int[] numbers, int index1, int index2)
         {
             int temp = numbers[index1];
             numbers[index1] = numbers[index2];
@@ -32,15 +32,17 @@
 
             return numbers;
         }
-        static List<int> MultiplyCommand(List<int> numbers, int index1, int index2)
+
+        static int[] MultiplyCommand(int[] numbers, int index1, int index2)
         {
             numbers[index1] = numbers[index1] * numbers[index2];
 
             return numbers;
         }
-        static List<int> DecreaseCommand(List<int> numbers)
+
+        static int[] DecreaseCommand(int[] numbers)
         {
-            for (int i = 0; i < numbers.Count; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
                 numbers[i] -= 1;
             }

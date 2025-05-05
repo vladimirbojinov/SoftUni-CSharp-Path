@@ -1,66 +1,82 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace _01._Company_Roster
+﻿namespace _01._Company_Roster
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            List<Employee> employeesList = new List<Employee>();
-            List<Employee> bestDepartment = new List<Employee>();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<Employee> employees = new List<Employee>();
 
-            string highestSalaryDepartment = string.Empty;
-            double maxSalary = int.MinValue; 
-            int employeeNumber = int.Parse(Console.ReadLine());
+			int employeesCount = int.Parse(Console.ReadLine());
+			for (int i = 0; i < employeesCount; i++)
+			{
+				string[] data = Console.ReadLine().Split();
 
-            for (int i = 0; i < employeeNumber; i++)
-            {
-                string[] employeeData = Console.ReadLine().Split();
-                string name = employeeData[0];
-                double salary = double.Parse(employeeData[1]);
-                string department = employeeData[2];
+				string name = data[0];
+				double salary = double.Parse(data[1]);
+				string department = data[2];
 
-                if (maxSalary < salary)
-                {
-                    maxSalary = salary;
-                    highestSalaryDepartment = department;
-                }
+				Employee employee = new Employee(name, salary, department);
+				employees.Add(employee);
+			}
 
-                Employee employee = new Employee(name, salary, department);
-                employeesList.Add(employee);
-            }
+			List<Employee> sortedEmployees = 
+				FindBestDepartmentBySalary(employees)
+				.OrderByDescending(e => e.Salary)
+				.ToList();
 
-            foreach (Employee employee in employeesList)
-            {
-                if (employee.Department == highestSalaryDepartment)
-                {
-                    bestDepartment.Add(employee);
-                }
-            }
+			string bestDepartment = sortedEmployees.FirstOrDefault().Department;
+			Console.WriteLine($"Highest Average Salary: {bestDepartment}");
+			Console.WriteLine(string.Join("\n", sortedEmployees));
+		}
 
-            var sortedList = bestDepartment.OrderByDescending(x => x.Salary);
+		private static List<Employee> FindBestDepartmentBySalary(List<Employee> employees)
+		{
+			List<string> departments = new List<string>();
+			foreach (Employee employee in employees)
+			{
+				if (!departments.Contains(employee.Department))
+				{
+					departments.Add(employee.Department);
+				}
+			}
 
-            Console.WriteLine($"Highest Average Salary: {highestSalaryDepartment}");
-            Console.WriteLine(string.Join("\n", sortedList));
-        }
-    }
+			string bestDepartment = string.Empty;
+			double bestAverageSalary = 0;
 
-    class Employee
-    {
-        public Employee(string name, double salary, string department)
-        {
-            Name = name;
-            Salary = salary;
-            Department = department;
-        }
+			foreach (string department in departments)
+			{
+				List<Employee> sortedEmployees = employees
+					.Where(e => e.Department == department)
+					.ToList();
 
-        public string Name { get; set; }
-        public double Salary { get; set; }
-        public string Department { get; set; }
+				double averageSalary = sortedEmployees.Average(e => e.Salary);
+				if (bestAverageSalary < averageSalary)
+				{
+					bestAverageSalary = averageSalary;
+					bestDepartment = department;
+				}
+			}
 
-        public override string ToString()
-        {
-            return $"{Name} {Salary:F2}";
-        }
-    }
+			return employees.Where(e => e.Department == bestDepartment).ToList();
+		}
+	}
+
+	class Employee
+	{
+		public Employee(string name, double salary, string department)
+		{
+			Name = name;
+			Salary = salary;
+			Department = department;
+		}
+
+		public string Name { get; set; }
+		public double Salary { get; set; }
+		public string Department { get; set; }
+
+		public override string ToString()
+		{
+			return $"{Name} {Salary:F2}";
+		}
+	}
 }

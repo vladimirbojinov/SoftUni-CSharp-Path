@@ -1,64 +1,74 @@
 ﻿namespace Problem_3___Hearth_Delivery
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int[] neighborhood = Console.ReadLine()
-                .Split("@")
-                .Select(int.Parse)
-                .ToArray();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			int[] neighborhood = Console.ReadLine()
+				.Split('@')
+				.Select(int.Parse)
+				.ToArray();
 
-            int cupidIndex = 0;
+			int cupidPos = 0;
 
-            string command;
-            while ((command = Console.ReadLine()) != "Love!")
-            {
-                string[] arguments = command.Split();
+			string command;
+			while ((command = Console.ReadLine()) != "Love!")
+			{
+				string[] input = command.Split();
 
-                int jumpLength = int.Parse(arguments[1]);
-                int landedPlace = jumpLength + cupidIndex;
+				cupidPos = int.Parse(input[1]) + cupidPos;
+				if (cupidPos >= neighborhood.Length)
+				{
+					cupidPos = 0;
+				}
 
-                if (landedPlace >= neighborhood.Length)
-                {
-                    cupidIndex = 0;
-                    landedPlace = 0;
-                }
+				VisitHouse(neighborhood, cupidPos);
+			}
 
-                if (neighborhood[landedPlace] == 0)
-                {
-                    Console.WriteLine($"Place {landedPlace} already had Valentine's day.");
-                }
-                else
-                {
-                    cupidIndex = landedPlace;
-                    neighborhood[landedPlace] -= 2;
-                    if (neighborhood[landedPlace] == 0)
-                    {
-                        Console.WriteLine($"Place {landedPlace} has Valentine's day.");
-                    }
-                }
+			int count = GetSuccessfulHousesCount(neighborhood);
 
-            }
+			Console.WriteLine($"Cupid's last position was {cupidPos}.");
+			if (count == neighborhood.Length)
+			{
+				Console.WriteLine("Mission was successful.");
+			}
+			else
+			{
+				Console.WriteLine($"Cupid has failed {neighborhood.Length - count} places.");
+			}
+		}
 
-            int failedHouses = 0;
-            foreach (int house in neighborhood)
-            {
-                if (house > 0)
-                {
-                    failedHouses++;
-                }
-            }
+		private static int GetSuccessfulHousesCount(int[] neighborhood)
+		{
+			int count = 0;
 
-            Console.WriteLine($"Cupid's last position was {cupidIndex}.");
-            if (failedHouses == 0)
-            {
-                Console.WriteLine("Mission was successful.");
-            }
-            else
-            {
-                Console.WriteLine($"Cupid has failed {failedHouses} places.");
-            }
-        }
-    }
+			foreach (int house in neighborhood)
+			{
+				if (house == 0)
+				{
+					count++;
+				}
+			}
+
+			return count;
+		}
+
+		private static void VisitHouse(int[] neighborhood, int cupidPos)
+		{
+			if (neighborhood[cupidPos] == 0)
+			{
+				Console.WriteLine($"Place {cupidPos} already had Valentine's day.");
+				return;
+			}
+			else
+			{
+				neighborhood[cupidPos] -= 2;
+			}
+
+			if (neighborhood[cupidPos] == 0)
+			{
+				Console.WriteLine($"Place {cupidPos} has Valentine's day.");
+			}
+		}
+	}
 }

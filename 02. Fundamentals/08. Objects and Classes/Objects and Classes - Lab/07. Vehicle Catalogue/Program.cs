@@ -6,20 +6,20 @@ namespace _07._Vehicle_Catalogue
     {
         static void Main(string[] args)
         {
-            List<Car> carCatalog = new List<Car>();
-            List<Truck> truckCatalog = new List<Truck>();
+            VehicleCatalog catalog = new VehicleCatalog();
 
             string command;
             while ((command = Console.ReadLine()) != "end")
             {
                 string[] vehicle = command.Split("/");
+
                 if (vehicle[0] == "Car")
                 {
                     string brand = vehicle[1];
                     string model = vehicle[2];
                     string horsePower = vehicle[3];
                     Car car = new Car(brand, model, horsePower);
-                    carCatalog.Add(car);
+                    catalog.Cars.Add(car);
                 }
                 else
                 {
@@ -27,23 +27,23 @@ namespace _07._Vehicle_Catalogue
                     string model = vehicle[2];
                     string weight = vehicle[3];
                     Truck truck = new Truck(brand, model, weight);
-                    truckCatalog.Add(truck);
-                }
+					catalog.Trucks.Add(truck);
+				}
             }
 
-            if (carCatalog.Count != 0)
+            if (catalog.Cars.Count != 0)
             {
                 Console.WriteLine("Cars:");
-                foreach (Car vehicle in carCatalog.OrderBy((x => x.Brand)))
+                foreach (Car vehicle in catalog.Cars.OrderBy(x => x.Brand))
                 {
                     Console.WriteLine($"{vehicle.Brand}: {vehicle.Model} - {vehicle.HorsePower}hp");
                 }
             }
 
-            if (truckCatalog.Count != 0)
+            if (catalog.Trucks.Count != 0)
             {
                 Console.WriteLine("Trucks:");
-                foreach (Truck vehicle in truckCatalog.OrderBy((x => x.Brand)))
+                foreach (Truck vehicle in catalog.Trucks.OrderBy((x => x.Brand)))
                 {
                     Console.WriteLine($"{vehicle.Brand}: {vehicle.Model} - {vehicle.Weight}kg");
                 }
@@ -79,15 +79,15 @@ namespace _07._Vehicle_Catalogue
         public string HorsePower { get; set; }
     }
 
-    public class Catalog
-    {
-        public Catalog(Car carCatallog, Truck truckCatallog)
-        {
-            CarCatallog = carCatallog;
-            TruckCatallog = truckCatallog;
-        }
+	public class VehicleCatalog
+	{
+		public VehicleCatalog()
+		{
+			Cars = new List<Car>();
+            Trucks = new List<Truck>();
+		}
 
-        public Car CarCatallog { get; set; }
-        public Truck TruckCatallog { get; set; }
-    }
+		public List<Car> Cars { get; set; }
+		public List<Truck> Trucks { get; set; }
+	}
 }

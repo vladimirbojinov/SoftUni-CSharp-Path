@@ -1,8 +1,6 @@
-﻿using System.Runtime.InteropServices;
-
-namespace _06._Store_Boxes
+﻿namespace _06._Store_Boxes
 {
-    internal class Program
+	internal class Program
     {
         static void Main(string[] args)
         {
@@ -11,15 +9,16 @@ namespace _06._Store_Boxes
             string command;
             while ((command = Console.ReadLine()) != "end")
             {
-                string[] boxId = command.Split();
-                string serialNum = boxId[0];
-                string itemName = boxId[1];
-                int itemQuantity = int.Parse(boxId[2]);
-                double itemPrice = double.Parse(boxId[3]);
+                string[] input = command.Split();
+
+                string boxSerialNum = input[0];
+                string itemName = input[1];
+                int itemQuantity = int.Parse(input[2]);
+                double itemPrice = double.Parse(input[3]);
 
                 Item item = new Item(itemName, itemPrice);
                 double boxPrice = itemQuantity * itemPrice;
-                Box box = new Box(serialNum, item, itemQuantity, boxPrice);
+                Box box = new Box(boxSerialNum, item, itemQuantity, boxPrice);
                 boxList.Add(box);
             }
 

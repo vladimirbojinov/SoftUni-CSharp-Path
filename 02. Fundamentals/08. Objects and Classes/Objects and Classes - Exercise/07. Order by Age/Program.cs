@@ -1,54 +1,54 @@
-﻿using System.Xml.Linq;
-
-namespace _07._Order_by_Age
+﻿namespace _07._Order_by_Age
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            List<People> peoplesList = new List<People>();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<Person> people = new List<Person>();
 
-            string command;
-            while ((command = Console.ReadLine()) != "End")
-            {
-                string[] personInformation = command.Split();
-                string name = personInformation[0];
-                string Id = personInformation[1];
-                int age = int.Parse(personInformation[2]);
-                People isPersonExisting = peoplesList.FirstOrDefault(x => x.Id == Id);
-                if (isPersonExisting != null)
-                {
-                    isPersonExisting.Name = name;
-                    isPersonExisting.Id = Id;
-                    isPersonExisting.Age = age;
-                }
-                else
-                {
-                    People people = new People(name, Id, age);
-                    peoplesList.Add(people);
-                }
+			string command;
+			while ((command = Console.ReadLine()) != "End")
+			{
+				string[] personData = command.Split();
+				string name = personData[0];
+				string id = personData[1];
+				int age = int.Parse(personData[2]);
 
-            }
+				Person person = people.FirstOrDefault(p => p.Id == id);
+				if (person != null)
+				{
+					person.Name = name;
+					person.Id = id;
+					person.Age = age;
+				}
+				else
+				{
+					person = new Person(name, id, age);
+					people.Add(person);
+				}
+			}
 
-            var sortedPeopleByAge = peoplesList.OrderBy(x => x.Age);
-            foreach (People peoples in sortedPeopleByAge)
-            {
-                Console.WriteLine($"{peoples.Name} with ID: {peoples.Id} is {peoples.Age} years old.");
-            }
-        }
-    }
+			List<Person> sortedPeopleByAge = people.OrderBy(x => x.Age).ToList();
+			Console.WriteLine(string.Join("\n", sortedPeopleByAge));
+		}
+	}
 
-    class People
-    {
-        public People(string name, string id, int age)
-        {
-            Name = name;
-            Id = id;
-            Age = age;
-        }
+	class Person
+	{
+		public Person(string name, string id, int age)
+		{
+			Name = name;
+			Id = id;
+			Age = age;
+		}
 
-        public string Name { get; set; }
-        public string Id { get; set; }
-        public int Age { get; set; }
-    }
+		public string Name { get; set; }
+		public string Id { get; set; }
+		public int Age { get; set; }
+
+		public override string ToString()
+		{
+			return $"{Name} with ID: {Id} is {Age} years old.";
+		}
+	}
 }

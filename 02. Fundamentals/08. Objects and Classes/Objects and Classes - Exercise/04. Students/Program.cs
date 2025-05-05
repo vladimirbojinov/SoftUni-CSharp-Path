@@ -4,29 +4,29 @@
     {
         static void Main(string[] args)
         {
-            List<Students> studentsList = new List<Students>();
+            List<Student> students = new List<Student>();
 
             int studentCount = int.Parse(Console.ReadLine());
             for (int i = 0; i < studentCount; i++)
             {
-                string[] studentId = Console.ReadLine()
+                string[] studentData = Console.ReadLine()
                     .Split();
-                string firstName = studentId[0];
-                string lastName = studentId[1];
-                double grade = float.Parse(studentId[2]);
+                string firstName = studentData[0];
+                string lastName = studentData[1];
+                double grade = float.Parse(studentData[2]);
 
-                Students student = new Students(firstName, lastName, grade);
-                studentsList.Add(student);
+                Student student = new Student(firstName, lastName, grade);
+                students.Add(student);
             }
 
-            var sortedList = studentsList.OrderByDescending(x => x.Grade);
-            Console.WriteLine(string.Join("\n", sortedList));
+			List<Student> sortedStudents = students.OrderByDescending(s => s.Grade).ToList();
+            Console.WriteLine(string.Join("\n", sortedStudents));
         }
     }
 
-    class Students
+    class Student
     {
-        public Students(string firstName, string lastName, double grade)
+        public Student(string firstName, string lastName, double grade)
         {
             FirstName = firstName;
             LastName = lastName;

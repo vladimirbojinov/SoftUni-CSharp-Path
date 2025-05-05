@@ -1,85 +1,79 @@
 ﻿namespace _06._Vehicle_Catalogue
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            List<Vehicles> vehiclesList = new List<Vehicles>();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<Vehicle> vehicles = new List<Vehicle>();
 
-            string command;
-            while ((command = Console.ReadLine()) != "End")
-            {
-                string[] argument = command.Split();
-                string type = argument[0];
-                string model = argument[1];
-                string color = argument[2];
-                double horsePower = double.Parse(argument[3]);
+			string command;
+			while ((command = Console.ReadLine()) != "End")
+			{
+				string[] argument = command.Split();
+				string type = argument[0];
+				string model = argument[1];
+				string color = argument[2];
+				double horsePower = double.Parse(argument[3]);
 
-                Vehicles vehicle = new Vehicles(type, model, color, horsePower);
-                vehiclesList.Add(vehicle);
-            }
+				Vehicle vehicle = new Vehicle(type, model, color, horsePower);
+				vehicles.Add(vehicle);
+			}
 
-            while ((command = Console.ReadLine()) != "Close the Catalogue")
-            {
-                Vehicles findCar = vehiclesList.FirstOrDefault(x => x.Model == command);
-                if (findCar != null)
-                {
-                    string capitalizedType = Capitalization(findCar.Type);
-                    Console.WriteLine($"Type: {capitalizedType}");
-                    Console.WriteLine($"Model: {findCar.Model}");
-                    Console.WriteLine($"Color: {findCar.Color}");
-                    Console.WriteLine($"Horsepower: {findCar.HorsePower}");
-                }
-            }
+			while ((command = Console.ReadLine()) != "Close the Catalogue")
+			{
+				Vehicle vehicle = vehicles.FirstOrDefault(v => v.Model == command);
+				if (vehicle != null)
+				{
+					string capitalizedType = Capitalization(vehicle.Type);
+					Console.WriteLine($"Type: {capitalizedType}");
+					Console.WriteLine($"Model: {vehicle.Model}");
+					Console.WriteLine($"Color: {vehicle.Color}");
+					Console.WriteLine($"Horsepower: {vehicle.HorsePower}");
+				}
+			}
 
-            double averageCarHorsePower = vehiclesList
-                .Where(x => x.Type == "car")
-                .Select(x => x.HorsePower)
-                .DefaultIfEmpty()
-                .Average();
-            Console.WriteLine($"Cars have average horsepower of: {averageCarHorsePower:F2}.");
+			double averageCarHorsePower = vehicles
+				.Where(v => v.Type == "car")
+				.Select(v => v.HorsePower)
+				.DefaultIfEmpty()
+				.Average();
+			Console.WriteLine($"Cars have average horsepower of: {averageCarHorsePower:F2}.");
 
-            double averageTruckHorsePower = vehiclesList
-                .Where(x => x.Type == "truck")
-                .Select(x => x.HorsePower)
-                .DefaultIfEmpty()
-                .Average();
+			double averageTruckHorsePower = vehicles
+				.Where(v => v.Type == "truck")
+				.Select(v => v.HorsePower)
+				.DefaultIfEmpty()
+				.Average();
 
-            Console.WriteLine($"Trucks have average horsepower of: {averageTruckHorsePower:F2}.");
-        }
+			Console.WriteLine($"Trucks have average horsepower of: {averageTruckHorsePower:F2}.");
+		}
 
-        static string Capitalization(string type)
-        {
-            string firstLetter = string.Empty;
-            for (int i = 0; i < 1; i++)
-            {
-                firstLetter = type[0].ToString().ToUpper();
-            }
+		static string Capitalization(string type)
+		{
+			string restOfTheString = type[0].ToString().ToUpper();
+			for (int i = 1; i < type.Length; i++)
+			{
+				restOfTheString += type[i].ToString();
+			}
 
-            string restOfTheString = string.Empty;
-            for (int i = 1; i < type.Length; i++)
-            {
-                restOfTheString += type[i].ToString();
-            }
+			string theWholeString = restOfTheString;
+			return theWholeString;
+		}
+	}
 
-            string theWholeString = firstLetter + restOfTheString;
-            return theWholeString;
-        }
-    }
+	class Vehicle
+	{
+		public Vehicle(string type, string model, string color, double horsePower)
+		{
+			Type = type;
+			Model = model;
+			Color = color;
+			HorsePower = horsePower;
+		}
 
-    class Vehicles
-    {
-        public Vehicles(string type, string model, string color, double horsePower)
-        {
-            Type = type;
-            Model = model;
-            Color = color;
-            HorsePower = horsePower;
-        }
-
-        public string Type { get; set; }
-        public string Model { get; set; }
-        public string Color { get; set; }
-        public double HorsePower { get; set; }
-    }
+		public string Type { get; set; }
+		public string Model { get; set; }
+		public string Color { get; set; }
+		public double HorsePower { get; set; }
+	}
 }

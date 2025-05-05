@@ -4,28 +4,28 @@
     {
         static void Main(string[] args)
         {
-            List<Articles> articleList = new List<Articles>();
+            List<Article> articles = new List<Article>();
 
             int loops = int.Parse(Console.ReadLine());
             for (int i = 0; i < loops; i++)
             {
-                string[] article = Console.ReadLine().Split(", ");
+                string[] input = Console.ReadLine().Split(", ");
 
-                string title = article[0];
-                string content = article[1];
-                string author = article[2];
+                string title = input[0];
+                string content = input[1];
+                string author = input[2];
 
-                Articles articles = new Articles(title, content, author);
-                articleList.Add(articles);
+                Article article = new Article(title, content, author);
+                articles.Add(article);
             }
 
-            Console.WriteLine(string.Join("\n", articleList));
+            Console.WriteLine(string.Join("\n", articles));
         }
     }
 
-    class Articles
+    class Article
     {
-        public Articles(string title, string content, string author)
+        public Article(string title, string content, string author)
         {
             Title = title;
             Content = content;

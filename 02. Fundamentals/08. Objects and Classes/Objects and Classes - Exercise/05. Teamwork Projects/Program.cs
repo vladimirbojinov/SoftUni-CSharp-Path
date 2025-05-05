@@ -1,102 +1,121 @@
-﻿using System.Xml.Linq;
-namespace _05._Teamwork_Projects
+﻿namespace _05._Teamwork_Projects
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            List<Teams> teamsList = new List<Teams>();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<Team> teams = TeamCreation();
+			MemberRecruitment(teams);
 
-            int teamCount = int.Parse(Console.ReadLine());
-            for (int i = 0; i < teamCount; i++)
-            {
-                string[] teamInfo = Console.ReadLine().Split("-");
-                string owner = teamInfo[0];
-                string teamName = teamInfo[1];
+			List<string> disbandedTeams = new List<string>();
+			for (int i = teams.Count - 1; i >= 0; i--)
+			{
+				if (teams[i].Members.Count == 0)
+				{
+					disbandedTeams.Add(teams[i].Name);
+					teams.RemoveAt(i);
+				}
+			}
 
-                Teams isTeamExisting = teamsList.FirstOrDefault(x => x.Name == teamName);
-                Teams isOwnerExisting = teamsList.FirstOrDefault(x => x.Owner == owner);
-                if (isTeamExisting == null && isOwnerExisting == null)
-                {
-                    Console.WriteLine($"Team {teamName} has been created by {owner}!");
-                    Teams team = new Teams(teamName, owner);
-                    teamsList.Add(team);
-                }
-                if (isTeamExisting != null)
-                {
-                    Console.WriteLine($"Team {teamName} was already created!");
-                }
-                if (isOwnerExisting != null)
-                {
-                    Console.WriteLine($"{owner} cannot create another team!");
-                }
-            }
+			List<Team> sortedTeams = teams
+				.OrderByDescending(t => t.Members.Count)
+				.ThenBy(t => t.Name)
+				.ToList();
 
-            string command;
-            while ((command = Console.ReadLine()) != "end of assignment")
-            {
-                string[] members = command.Split("->");
-                string member = members[0];
-                string teamName = members[1];
+			Console.WriteLine(string.Join("\n", sortedTeams));
+			Console.WriteLine("Teams to disband:");
+			Console.WriteLine(string.Join("\n", disbandedTeams.OrderBy(t => t)));
+		}
 
-                Teams isTeamExisting = teamsList.FirstOrDefault(x => x.Name == teamName);
-                Teams isMemberExisting = teamsList.FirstOrDefault(x => x.Members.Contains(member));
-                Teams isOwnerExisting = teamsList.FirstOrDefault(x => x.Owner == member);
-                if (isTeamExisting != null && isMemberExisting == null && isOwnerExisting == null)
-                {
-                    teamsList.Find(x => x.Name == teamName)
-                        .Members.Add(member);
-                }
-                if (isTeamExisting == null)
-                {
-                    Console.WriteLine($"Team {teamName} does not exist!");
-                }
-                if (isMemberExisting != null || isOwnerExisting != null)
-                {
-                    Console.WriteLine($"Member {member} cannot join team {teamName}!");
-                }
-            }
+		private static void MemberRecruitment(List<Team> teams)
+		{
+			string command;
+			while ((command = Console.ReadLine()) != "end of assignment")
+			{
+				string[] input = command.Split("->");
 
-            teamsList = teamsList
-                .OrderByDescending(x => x.Members.Count)
-                .ThenBy(x => x.Name)
-                .ToList();
+				string user = input[0];
+				string teamName = input[1];
 
-            List<Teams> leftTeams = teamsList.Where(team => team.Members.Count > 0).ToList();
-            List<Teams> disbandTeams = teamsList.Where(team => team.Members.Count == 0).ToList();
+				Team team = teams.FirstOrDefault(t => t.Name == teamName);
+				if (team == null)
+				{
+					Console.WriteLine($"Team {teamName} does not exist!");
+					continue;
+				}
 
-            Console.WriteLine(string.Join("\n", leftTeams));
-            Console.WriteLine("Teams to disband:");
-            disbandTeams.ForEach(team => Console.WriteLine(team.Name));
-        }
-    }
+				team = teams.FirstOrDefault(t => t.Members.Contains(user) || t.Owner == user);
+				if (team != null)
+				{
+					Console.WriteLine($"Member {user} cannot join team {teamName}!");
+					continue;
+				}
 
-    class Teams
-    {
-        public Teams(string name, string owner)
-        {
-            Name = name;
-            Owner = owner;
-            Members = new List<string>();
-        }
+				team = teams.FirstOrDefault(t => t.Name == teamName);
+				team.Members.Add(user);
+			}
+		}
 
-        public string Name { get; set; }
-        public string Owner { get; set; }
-        public List<string> Members { get; set; }
+		private static List<Team> TeamCreation()
+		{
+			List<Team> teams = new List<Team>();
 
-        public override string ToString()
-        {
-            string members = string.Empty;
+			int teamCount = int.Parse(Console.ReadLine());
 
-            Members = Members
-                .OrderBy(x => x)
-                .ToList();
+			for (int i = 0; i < teamCount; i++)
+			{
+				string[] input = Console.ReadLine().Split('-');
 
-            foreach (string member in Members)
-            {
-                members += $"-- {member} \n";
-            }
-            return $"{Name}\n- {Owner}\n{members.Trim()}";
-        }
-    }
+				string user = input[0];
+				string teamName = input[1];
+
+				Team team = teams.FirstOrDefault(t => t.Name == teamName);
+				if (team != null)
+				{
+					Console.WriteLine($"Team {teamName} was already created!");
+					continue;
+				}
+
+				team = teams.FirstOrDefault(t => t.Owner == user);
+				if (team != null)
+				{
+					Console.WriteLine($"{user} cannot create another team!");
+					continue;
+				}
+
+				team = new Team(teamName, user);
+				Console.WriteLine($"Team {teamName} has been created by {user}!");
+				teams.Add(team);
+			}
+
+			return teams;
+		}
+	}
+
+	public class Team
+	{
+		public Team(string name, string owner)
+		{
+			Name = name;
+			Owner = owner;
+			Members = new List<string>();
+		}
+
+		public string Name { get; set; }
+		public string Owner { get; set; }
+		public List<string> Members { get; set; }
+
+		public override string ToString()
+		{
+			string result = $"{Name}\n";
+			result += $"- {Owner}\n";
+
+			foreach (string member in Members.OrderBy(m => m))
+			{
+				result += $"-- {member}\n";
+			}
+
+			return result.Trim();
+		}
+	}
 }
