@@ -9,31 +9,27 @@
             string command;
             while ((command = Console.ReadLine()) != "End")
             {
-                string[] arguments = command.Split(" -> ");
-                string company = arguments[0];
-                string empleeID = arguments[1];
+                string[] input = command.Split(" -> ");
+                string companyName = input[0];
+                string employeeId = input[1];
 
-                if (!companyDictionary.ContainsKey(company))
+                if (!companyDictionary.ContainsKey(companyName))
                 {
-                    companyDictionary.Add(company, new List<string>());
-                    companyDictionary[company].Add(empleeID);
+                    companyDictionary[companyName] = new List<string>();
                 }
-                else
+
+                if (!companyDictionary[companyName].Contains(employeeId))
                 {
-                    List<string> isEmployeeExisting = companyDictionary.Values.FirstOrDefault(x => x.ToString() == empleeID);
-                    if (isEmployeeExisting == null)
-                    {
-                        companyDictionary[company].Add(empleeID);
-                    }
-                }
+					companyDictionary[companyName].Add(employeeId);
+				}
             }
 
-            foreach (var kvp in companyDictionary)
+            foreach (var company in companyDictionary)
             {
-                Console.WriteLine(kvp.Key);
-                foreach (var value in kvp.Value)
+				Console.WriteLine(company.Key);
+                foreach (string employees in company.Value)
                 {
-                    Console.WriteLine($"-- {value}");
+					Console.WriteLine($"-- {employees}");
                 }
             }
         }

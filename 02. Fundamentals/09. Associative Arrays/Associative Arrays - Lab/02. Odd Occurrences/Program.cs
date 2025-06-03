@@ -9,24 +9,22 @@
                 .Select(x => x.ToLower())
                 .ToArray();
 
-            Dictionary<string, int> existingNumbers = new Dictionary<string, int>();
+            Dictionary<string, int> wordsEncounter = new Dictionary<string, int>();
             for (int i = 0; i < text.Length; i++)
             {
-                if (!existingNumbers.ContainsKey(text[i]))
+                if (!wordsEncounter.ContainsKey(text[i]))
                 {
-                    existingNumbers.Add(text[i], 1);
+                    wordsEncounter.Add(text[i], 0);
                 }
-                else
-                {
-                    existingNumbers[text[i]]++;
-                }
+
+                wordsEncounter[text[i]]++;
             }
 
-            foreach (var kvp in existingNumbers)
+            foreach (var word in wordsEncounter)
             {
-                if (kvp.Value % 2 == 1)
+                if (word.Value % 2 == 1)
                 {
-                    Console.Write(kvp.Key + " ");
+                    Console.Write(word.Key + " ");
                 }
             }
         }

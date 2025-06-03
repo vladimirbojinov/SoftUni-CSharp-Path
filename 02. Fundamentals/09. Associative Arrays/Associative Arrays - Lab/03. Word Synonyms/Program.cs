@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace _03._Word_Synonyms
+﻿namespace _03._Word_Synonyms
 {
     internal class Program
     {
@@ -22,11 +20,9 @@ namespace _03._Word_Synonyms
                 synonymsDict[word].Add(synonyms);
             }
 
-            foreach (var kvp in synonymsDict)
+            foreach (var word in synonymsDict)
             {
-                Console.Write(kvp.Key + " - ");
-                Console.Write(string.Join(", ", kvp.Value));
-                Console.WriteLine();
+				Console.WriteLine($"{word.Key} - {string.Join(", ", word.Value)}");
             }
         }
     }

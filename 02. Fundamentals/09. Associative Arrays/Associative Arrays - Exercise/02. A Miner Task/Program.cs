@@ -9,22 +9,20 @@
             string command;
             while ((command = Console.ReadLine()) != "stop")
             {
-                string resources = command;
+                string resource = command;
                 int quantity = int.Parse(Console.ReadLine());
 
-                if (!resourcesDictionary.ContainsKey(resources))
+                if (!resourcesDictionary.ContainsKey(resource))
                 {
-                    resourcesDictionary.Add(resources, quantity);
+                    resourcesDictionary.Add(resource, 0);
                 }
-                else
-                {
-                    resourcesDictionary[resources] += quantity;
-                }
+
+                resourcesDictionary[resource] += quantity;
             }
 
-            foreach (var kvp in resourcesDictionary)
+            foreach (var recourse in resourcesDictionary)
             {
-                Console.WriteLine($"{kvp.Key} -> {kvp.Value}");
+                Console.WriteLine($"{recourse.Key} -> {recourse.Value}");
             }
         }
     }

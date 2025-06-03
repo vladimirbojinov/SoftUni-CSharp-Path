@@ -1,112 +1,100 @@
 ﻿namespace _02._Judge
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Dictionary<string, List<Students>> studentsDictionary = new Dictionary<string, List<Students>>();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<Participant> participants = new List<Participant>();
+			List<string> contests = new List<string>();
 
-            string command;
-            while ((command = Console.ReadLine()) != "no more time")
-            {
-                string[] arguments = command.Split("->");
-                string username = arguments[0];
-                string contest = arguments[1];
-                int points = int.Parse(arguments[2]);
+			string command;
+			while ((command = Console.ReadLine()) != "no more time")
+			{
+				string[] arguments = command.Split(" -> ");
+				string username = arguments[0];
+				string contest = arguments[1];
+				int points = int.Parse(arguments[2]);
 
-                if (!studentsDictionary.ContainsKey(contest))
-                {
-                    Students students = new Students(username, points);
-                    studentsDictionary.Add(contest, value: new List<Students> { students });
-                    students.AttendedAt(contest);
-                }
-                else
-                {
-                    bool isPointsBigger = false;
-                    bool isPointsSmaller = false;
-                    foreach (var kvp in studentsDictionary)
-                    {
-                        foreach (Students values in kvp.Value)
-                        {
-                            if (values.Points < points && values.Name == username && values.AttendedContests.Contains(contest))
-                            {
-                                isPointsBigger = true;
-                                values.Update(points);
-                            }
-                            else if (values.Points > points && values.Name == username && values.AttendedContests.Contains(contest))
-                            {
-                                isPointsSmaller = true;
-                            }
-                        }
-                    }
+				if (!contests.Contains(contest))
+				{
+					contests.Add(contest);
+				}
 
-                    if (!isPointsBigger && !isPointsSmaller)
-                    {
-                        Students students = new Students(username, points);
-                        studentsDictionary[contest].Add(students);
-                        students.AttendedAt(contest);
-                    }
-                }
-            }
+				Participant matchedParticipant = participants.FirstOrDefault(p => p.Name == username);
+				if (matchedParticipant == null)
+				{
+					Participant participant = new Participant(username);
+					participant.AddContest(contest, points);
+					participants.Add(participant);
+				}
+				else
+				{
+					matchedParticipant.AddContest(contest, points);
+				}
+			}
 
-            foreach (var kvp in studentsDictionary)
-            {
-                Console.WriteLine($"{kvp.Key.Trim()}: {kvp.Value.Count} participants");
+			List<Participant> orderedParticipants = new List<Participant>();
+			foreach (string contest in contests)
+			{
+				orderedParticipants = participants
+					.Where(p => p.Contests.ContainsKey(contest))
+					.OrderByDescending(p => p.Contests[contest])
+					.ThenBy(p => p.Name)
+					.ToList();
 
-                int count = 0;
-                foreach (Students values in kvp.Value.OrderByDescending(x => x.Points))
-                {
-                    count++;
-                    Console.WriteLine($"{count}. {values.Name}<::> {values.Points}");
-                }
-            }
+				Console.WriteLine($"{contest}: {orderedParticipants.Count} participants");
+				int counter = 1;
+				foreach (Participant participant in orderedParticipants)
+				{
+					Console.WriteLine($"{counter++}. {participant.Name} <::> {participant.Contests[contest]}");
+				}
+			}
 
-            Console.WriteLine("Individual standings:");
+			orderedParticipants = participants
+				.OrderByDescending(p => p.Contests.Values.Sum())
+				.ThenBy(p => p.Name)
+				.ToList();
 
-            List<Students> sortedStudentList = new List<Students>();
-            foreach (var kvp in studentsDictionary)
-            {
-                sortedStudentList.AddRange(kvp.Value.OrderByDescending(x => x.Points).ToList());
-            }
+			Console.WriteLine("Individual standings:");
+			for (int i = 0; i < orderedParticipants.Count; i++)
+			{
+				Console.WriteLine($"{i +1}. {orderedParticipants[i]}");
+			}
+		}
+	}
+	class Participant
+	{
+		public Participant(string name)
+		{
+			Name = name;
+			Contests = new Dictionary<string, int>();
+		}
 
-            sortedStudentList = sortedStudentList
-                .GroupBy(x => x.Name)
-                .Select(x => new Students(x.Key, x.Sum(x => x.Points)))
-                .ToList();
-            sortedStudentList = sortedStudentList.OrderByDescending(x => x.Points).ToList();
+		public string Name { get; set; }
+		public Dictionary<string, int> Contests { get; set; }
 
-            for (int i = 0; i < sortedStudentList.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {sortedStudentList[i]}");
-            }
-        }
-    }
-    class Students
-    {
-        public Students(string name, int points)
-        {
-            Name = name;
-            Points = points;
-            AttendedContests = new List<string>();
-        }
+		public void AddContest(string contest, int points)
+		{
+			if (Contests.ContainsKey(contest))
+			{
+				UpdatePoints(contest, points);
+				return;
+			}
 
-        public string Name { get; set; }
-        public int Points { get; set; }
+			Contests.Add(contest, points);
+		}
 
-        public List<string> AttendedContests { get; set; }
+		public void UpdatePoints(string contest, int points)
+		{
+			if (Contests[contest] < points)
+			{
+				Contests[contest] = points;
+			}
+		}
 
-        public void Update(int points)
-        {
-            Points = points;
-        }
-
-        public void AttendedAt(string contest)
-        {
-            AttendedContests.Add(contest);
-        }
-        public override string ToString()
-        {
-            return $"{Name}-> {Points}";
-        }
-    }
+		public override string ToString()
+		{
+			return $"{Name} -> {Contests.Values.Sum()}";
+		}
+	}
 }

@@ -4,31 +4,25 @@
     {
         static void Main(string[] args)
         {
-            Dictionary<char, int> textDictionary = new Dictionary<char, int>();
+            Dictionary<char, int> letterOccurrences = new Dictionary<char, int>();
+            char[] letters = Console.ReadLine()
+                .ToCharArray()
+                .Where(c => c != ' ')
+                .ToArray();
 
-            string input = Console.ReadLine();
-            for (int i = 0; i < input.Length; i++)
+            foreach (char c in letters)
             {
-                char singleLetter = input[i];
-
-                if (singleLetter == ' ')
+                if (!letterOccurrences.ContainsKey(c))
                 {
-                    continue;
+                    letterOccurrences.Add(c, 0);
                 }
 
-                if (!textDictionary.ContainsKey(singleLetter))
-                {
-                    textDictionary.Add(singleLetter, 1);    
-                }
-                else
-                {
-                    textDictionary[singleLetter]++;
-                }
+                letterOccurrences[c]++;
             }
 
-            foreach (var kvp in textDictionary)
+            foreach (var letter in letterOccurrences)
             {
-                Console.WriteLine($"{kvp.Key} -> {kvp.Value}");
+				Console.WriteLine($"{letter.Key} -> {letter.Value}");
             }
         }
     }

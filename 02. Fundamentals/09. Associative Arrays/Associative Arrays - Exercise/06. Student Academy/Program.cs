@@ -15,22 +15,18 @@
                 if (!studentDictionary.ContainsKey(name))
                 {
                     studentDictionary.Add(name, new List<double>());
-                    studentDictionary[name].Add(grade);
                 }
-                else
-                {
-                    studentDictionary[name].Add(grade);
-                }
+
+                studentDictionary[name].Add(grade);
             }
 
-            foreach (var kvp in studentDictionary)
+            foreach (var student in studentDictionary)
             {
-                List<double> list = kvp.Value;
-                double average = list.Average();
+                double average = student.Value.Average();
 
                 if (average >= 4.50)
                 {
-                    Console.WriteLine($"{kvp.Key} -> {average:F2}");
+                    Console.WriteLine($"{student.Key} -> {average:F2}");
                 }
             }
         }

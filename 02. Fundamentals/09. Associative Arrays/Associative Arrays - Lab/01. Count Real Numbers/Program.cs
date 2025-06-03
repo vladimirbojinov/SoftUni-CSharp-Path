@@ -9,20 +9,18 @@
                 .Select(int.Parse)
                 .ToArray();
 
-            var existingNumbers = new SortedDictionary<int, int>();
+			SortedDictionary<int, int> numbersEncounter = new SortedDictionary<int, int>();
             for (int i = 0; i < numbers.Length; i++)
             {
-                if (!existingNumbers.ContainsKey(numbers[i]))
+                if (!numbersEncounter.ContainsKey(numbers[i]))
                 {
-                    existingNumbers.Add(numbers[i], 1);
+                    numbersEncounter.Add(numbers[i], 0);
                 }
-                else
-                {
-                    existingNumbers[numbers[i]]++;
-                }
+
+                numbersEncounter[numbers[i]]++;
             }
 
-            foreach (var number in existingNumbers)
+            foreach (var number in numbersEncounter)
             {
                 Console.WriteLine($"{number.Key} -> {number.Value}");
             }

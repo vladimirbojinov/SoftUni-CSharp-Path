@@ -10,52 +10,52 @@
             while ((command = Console.ReadLine()) != "buy")
             {
                 string[] input = command.Split();
-                string product = input[0];
+                string name = input[0];
                 double price = double.Parse(input[1]);
                 int quantity = int.Parse(input[2]);
-                
 
-                Product productData = new Product(product, price, quantity);
-                if (!productDictionary.ContainsKey(product))
+                if (!productDictionary.ContainsKey(name))
                 {
-                    productDictionary.Add(product, productData);
+                    Product product = new Product(name);
+                    productDictionary.Add(name, product);
                 }
-                else
-                {
-                    productDictionary[product].Update(price, quantity);
-                }
+
+                productDictionary[name].UpdatePrice(price);
+                productDictionary[name].AddQuantity(quantity);
             }
 
-            Console.WriteLine(string.Join("\n", productDictionary.Values));
+            foreach (Product product in productDictionary.Values)
+            {
+				Console.WriteLine(product);
+            }
         }
     }
 
-    class Product
+    public class Product
     {
-        public Product(string productName, double price, int quantity)
-        {
-            ProductName = productName;
-            Price = price;
-            Quantity = quantity;
-            TotalPrice = Price * Quantity;
-        }
+		public Product(string name)
+		{
+			Name = name;
+		}
 
-        public string ProductName { get; set; }
+		public string Name { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
-        public double TotalPrice { get; set; }
 
-        public double Update(double price, int quantity)
+        public void UpdatePrice(double newPrice)
         {
-            Price = price;
-            Quantity += quantity;
-            TotalPrice = Price * Quantity;
-            return TotalPrice;
+            Price = newPrice;
         }
 
-        public override string ToString()
-        {
-            return $"{ProductName} -> {TotalPrice:F2}";
-        }
-    }
+		public void AddQuantity(int quantity)
+		{
+			Quantity += quantity;
+		}
+
+		public override string ToString()
+		{
+            double totalPrice = Price * Quantity;
+			return $"{Name} -> {totalPrice:F2}";
+		}
+	}
 }
