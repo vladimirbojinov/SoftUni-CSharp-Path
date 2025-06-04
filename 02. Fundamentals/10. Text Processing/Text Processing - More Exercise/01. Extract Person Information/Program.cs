@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            int textNumber = int.Parse(Console.ReadLine());
+            int textCount = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < textNumber; i++)
+            for (int i = 0; i < textCount; i++)
             {
                 string text = Console.ReadLine();
 

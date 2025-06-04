@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using System.Text;
+﻿using System.Text;
 
 namespace _05._Multiply_Big_Number
 {

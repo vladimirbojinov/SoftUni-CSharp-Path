@@ -8,7 +8,7 @@
 
             Console.WriteLine(string.Join("", text.Where(char.IsDigit)));
             Console.WriteLine(string.Join("", text.Where(char.IsLetter)));
-            Console.WriteLine(string.Join("", text.Where(x => !char.IsLetterOrDigit(x))));
+            Console.WriteLine(string.Join("", text.Where(c => !char.IsLetterOrDigit(c))));
         }
     }
 }

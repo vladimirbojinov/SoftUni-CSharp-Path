@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            string removedWord = Console.ReadLine();
+            string textToRemove = Console.ReadLine();
             string text = Console.ReadLine();
-            while (text.Contains(removedWord))
+            while (text.Contains(textToRemove))
             {
-                int startIndex = text.IndexOf(removedWord);
-                text = text.Remove(startIndex, removedWord.Length);
+                int textIndex = text.IndexOf(textToRemove);
+                text = text.Remove(textIndex, textToRemove.Length);
             }
 
             Console.WriteLine(text);

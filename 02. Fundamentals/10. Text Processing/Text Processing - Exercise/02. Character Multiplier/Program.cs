@@ -11,28 +11,36 @@
 
         private static int SumOfTexts(string firstText, string secondText)
         {
-            int totalSum = 1;
+            int sum = 0;
 
-            int maxLength = Math.Max(firstText.Length, secondText.Length);
-
-            for (int i = 0; i < maxLength; i++)
+            if (firstText.Length > secondText.Length)
             {
-                if (i < firstText.Length && i < secondText.Length)
+                sum = GetSum(firstText, secondText);
+            }
+			else
+			{
+				sum = GetSum(secondText, firstText);
+			}
+
+            return sum;
+		}
+
+		private static int GetSum(string firstText, string secondText)
+		{
+            int sum = 0;
+            for (int i = 0; i < firstText.Length; i++)
+            {
+                if (secondText.Length > i)
                 {
-                    totalSum += firstText[i] * secondText[i];
+                    sum += firstText[i] * secondText[i];
                 }
-                else if (i > firstText.Length - 1)
+                else
                 {
-                    totalSum += secondText[i];
-                }
-                else if (i > secondText.Length - 1)
-                {
-                    totalSum += firstText[i];
+                    sum += firstText[i];
                 }
             }
 
-            totalSum--;
-            return totalSum;
-        }
-    }
+            return sum;
+		}
+	}
 }

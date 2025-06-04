@@ -4,51 +4,52 @@
     {
         static void Main(string[] args)
         {
-            string[] gameNumbers = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            string[] gameNumbers = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            decimal sum = 0;
 
-            decimal total = 0;
+            foreach (string gameNumber in gameNumbers)
+			{
+				decimal number = int.Parse(gameNumber.Where(char.IsDigit).ToArray());
 
-            foreach (string stringGameNum in gameNumbers)
-            {
-                string stringNumber = string.Join("", stringGameNum.Where(char.IsDigit));
-                decimal number = decimal.Parse(stringNumber);
+				number = FirstLetterCalc(gameNumber, number);
+				number = LastLetterCalc(gameNumber, number);
 
-                for (int i = 1; i < stringGameNum.Length; i++)
-                {
-                    if (char.IsLetter(stringGameNum[i - 1]))
-                    {
-                        char c = stringGameNum[i - 1];
-                        int index = char.ToUpper(c) - 64;
+				sum += number;
+			}
 
-                        if (char.IsUpper(c))
-                        {
-                            number /= index;
-                        }
-                        else
-                        {
-                            number *= index;
-                        }
-                    }
-                    else if (char.IsLetter(stringGameNum[i]))
-                    {
-                        char c = stringGameNum[i];
-                        int index = char.ToUpper(c) - 64;
+			Console.WriteLine($"{sum:F2}");
+		}
 
-                        if (char.IsUpper(c))
-                        {
-                            number -= index;
-                        }
-                        else
-                        {
-                            number += index;
-                        }
-                    }
-                }
+		private static decimal LastLetterCalc(string gameNumber, decimal number)
+		{
+			if (char.IsUpper(gameNumber[gameNumber.Length - 1]))
+			{
+				int letterPos = gameNumber[gameNumber.Length - 1] - 64;
+				number -= letterPos;
+			}
+			else
+			{
+				int letterPos = gameNumber[gameNumber.Length - 1] - 96;
+				number += letterPos;
+			}
 
-                total += number;
-            }
+			return number;
+		}
 
-            Console.WriteLine($"{total:F2}");
-        }
-    }
+		private static decimal FirstLetterCalc(string gameNumber, decimal number)
+		{
+			if (char.IsUpper(gameNumber[0]))
+			{
+				int letterPos = gameNumber[0] - 64;
+				number /= letterPos;
+			}
+			else
+			{
+				int letterPos = gameNumber[0] - 96;
+				number *= letterPos;
+			}
+
+			return number;
+		}
+	}
 }

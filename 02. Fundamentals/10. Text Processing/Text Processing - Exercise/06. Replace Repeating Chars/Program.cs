@@ -18,7 +18,7 @@ namespace _06._Replace_Repeating_Chars
                 }
             }
 
-            Console.WriteLine(sb.ToString());
+            Console.WriteLine(sb.ToString().Trim());
         }
     }
 }

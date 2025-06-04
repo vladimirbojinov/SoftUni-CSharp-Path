@@ -17,7 +17,7 @@ namespace _02._Repeat_Strings
                 }
             }
 
-            Console.WriteLine(sb.ToString());
+            Console.WriteLine(sb.ToString().Trim());
         }
     }
 }

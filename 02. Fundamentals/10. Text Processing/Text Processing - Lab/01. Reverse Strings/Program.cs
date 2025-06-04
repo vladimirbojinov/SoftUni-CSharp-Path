@@ -9,12 +9,12 @@
             string command;
             while ((command = Console.ReadLine()) != "end")
             {
-                reversedText = ReverseStrings(command);
+                reversedText = ReverseString(command);
                 Console.WriteLine($"{command} = {reversedText}");
             }
         }
 
-        private static string ReverseStrings(string text)
+        private static string ReverseString(string text)
         {
             string reverseString = string.Empty;
 
