@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="P01_StudentSystem.Data.Models/P01_StudentSystem.Data.Models.csproj" Id="f1df3707-8e82-4940-a518-b3fcbb74c2cc" />
+  <Project Path="P01_StudentSystem.Data/P01_StudentSystem.Data.csproj" Id="2fe3ba51-a5a5-4223-bea5-0b1c434e2971" />
+  <Project Path="P01_StudentSystem/P01_StudentSystem.csproj" Id="ad0bdb03-0c70-426f-8317-b59b8a20a7ec" />
+</Solution>

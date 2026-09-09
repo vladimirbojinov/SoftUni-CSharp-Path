@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\..\06. JSON Processing\Exercise\CarDealer\CarDealer\Common\JsonConfig.cs" Link="Common\JsonHelper\JsonConfig.cs" />
+    <Compile Include="..\..\..\..\06. JSON Processing\Exercise\CarDealer\CarDealer\Common\JsonUtilities.cs" Link="Common\JsonHelper\JsonUtilities.cs" />
+    <Compile Include="..\..\..\..\07. XML Processing\Exercise\ProductShop\ProductShop\Common\XmlUtilities.cs" Link="Common\XmlHelper\XmlUtilities.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\JsonHelper\" />
+    <Folder Include="Common\XmlHelper\" />
+    <Folder Include="DTOs\Xml\" />
+    <Folder Include="ViewModels\Watchlist\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

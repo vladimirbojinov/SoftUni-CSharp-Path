@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="P02_FootballBetting.Data.Models/P02_FootballBetting.Data.Models.csproj" Id="55a08ee2-b312-4231-b399-3b9a72848877" />
+  <Project Path="P02_FootballBetting.Data/P02_FootballBetting.Data.csproj" Id="9fc7099d-4d9e-416f-a576-d89360dae8a9" />
+  <Project Path="P02_FootballBetting/P02_FootballBetting.csproj" Id="d5513085-b2e7-4369-8c98-376154f137f7" />
+</Solution>
